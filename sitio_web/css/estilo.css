@@ -1,0 +1,100 @@
+/*
+@font-face {
+    font-family: 'Sheylendra';
+    src: url('../.././sitio_web/css/Sheylendra_DEMO.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+  html,
+  body {
+	height: 100%;
+    margin: 0;
+    padding: 0;  
+
+
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #cabecera {
+    width: 100%; /* El ancho siempre será del 100% del contenedor */
+    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
+}
+
+  #pie {
+	width: 100%; /* El ancho siempre será del 100% del contenedor */
+    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
+
+	
+  }
+
+  #separador {
+	width: 100%; /* El ancho siempre será del 100% del contenedor */
+    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
+  }
+  #separador2 {
+	width: 100%; /* El ancho siempre será del 100% del contenedor */
+    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */  
+  }
+
+
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	background: url('../.././sitio_web/img/fondo1.jpg') no-repeat center center; 
+    background-size: cover;
+    z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.container {
+	display: flex;
+	justify-content: center; /* Centra horizontalmente */
+	align-items: center;     /* Centra verticalmente */
+
+	text-align: center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
+    font-size:				35px; 
+  }
+
+.titulo {
+  font-family: 'Dancing Script', 'Roboto', sans-serif;
+	font-size:			80px; 
+}
+.subtitulo {
+  font-family: 'Dancing Script', 'Roboto', sans-serif;
+	font-size:			50px; 
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté delante del fondo */
+    padding: 50px;
+}
+
+
+
+
+@media only screen and (max-width: 480px) {
+    /* Estilos para pantallas pequeñas como teléfonos móviles en modo vertical */
+
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* Estilos para teléfonos móviles en modo horizontal */
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Estilos para tabletas en modo vertical */
+
+}
+@media only screen and (min-width: 1025px) {
+    /* Estilos para tabletas en modo vertical */
+
+}

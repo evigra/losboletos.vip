@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es-ES">
+    <head>		    
+    	<title>{html_head_title}</title>
+       <!--
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTDTeSJ3Uu3hHCy73RzGoJbx6vmKcmmUI&v=weekly"></script>
+        -->
+        
+        <meta name="description" content="{html_head_description}" />
+        <meta name="keywords" content="{html_head_keywords}" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <!--
+        <link rel="stylesheet" type="text/css" href="../../sitio_web/css/{html_head_css}.css">
+        -->
+        <link rel="stylesheet" type="text/css" href="../../sitio_web/css/estilo.css">
+
+        <link rel="stylesheet" type="text/css" href="../../sitio_web/css/jquery-ui.css">
+
+        <meta property="og:url"           content="http://{html_head_url}" />
+        <meta property="og:type"          content="website" />
+        
+        <meta property="fb:app_id" content="1984430411957885">
+        
+        <meta property="og:title"         content="{html_head_title}" />
+        <meta property="og:description"   content="{html_head_description}" />
+        
+        
+
+        <link rel="icon" href="../../sitio_web/img/icono.png" type="image/x-icon">
+        <script src="../../sitio_web/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+        
+        
+  
+    </head>
+    <body>
+
+      <form action="" method="POST" enctype="multipart/form-data">	
+        <input id="action" name="action" value="" type="hidden">
+        <input id="id" name="id" value="{id}" type="hidden">
+        {html_body}  
+      </form>
+
+      <script src="../../sitio_web/js/jquery.js"></script>
+      <script src="../../sitio_web/js/jquery-ui.js"></script>
+
+
+      <script>
+
+// Establece la fecha y hora de destino
+//const targetDate = new Date("December 31, 2024 23:59:59").getTime();
+const targetDate = new Date("2024/12/06 23:59:59").getTime();
+
+// Actualiza el temporizador cada segundo
+const countdown = setInterval(() => {
+
+    // Obtiene la fecha y hora actual
+    const now = new Date().getTime();
+
+    // Calcula la diferencia entre la fecha actual y la de destino
+    const distance = targetDate - now;
+
+    // Calcula los días, horas, minutos y segundos restantes
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Muestra el resultado en un elemento HTML con id="timer"
+    document.getElementById("timer").innerHTML = `${days} Dias<br>${hours} Hrs<br>${minutes} Min<br>${seconds} Seg`;
+
+    // Si la cuenta atrás ha terminado, detén el temporizador
+    if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("timer").innerHTML = "¡Tiempo finalizado!";
+    }
+}, 1000);
+
+        
+
+
+
+        if($("[type^='button']").length>0) 
+		{
+
+            $("[type^='button']").button(); 
+
+			$("[type^='button']").click(function()
+			{            
+                $("#action").val( $(this).attr("value") );    
+				$("form").submit();					
+			});			
+		}	
+/*
+
+let lastScrollTop = 0;
+const background = document.querySelector('.background');
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Desplazando hacia abajo
+        background.style.opacity = '1';
+    } else {
+        // Desplazando hacia arriba
+        background.style.opacity = '0';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evitar números negativos
+});
+*/
+      </script>
+
+    </body>    
+</html>
