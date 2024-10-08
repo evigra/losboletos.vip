@@ -51,7 +51,7 @@
 				$url_qr	=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
 
-				$text_wa=urlencode("HOLA {$data["nombre_invitado"]}\n\n En Este dia tan especial, queremos invitarte a nuestra boda \n\nFavor de confirmar su asistencia  \n\n $url_text \n\n $url_qr");
+				$text_wa="HOLA {$data["nombre_invitado"]}\n\n En Este dia tan especial, queremos invitarte a nuestra boda \n\nFavor de confirmar su asistencia  \n\n $url_text \n\n $url_qr";
 
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$text_wa";
