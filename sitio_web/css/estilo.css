@@ -1,11 +1,11 @@
-/*
+
 @font-face {
-    font-family: 'Sheylendra';
-    src: url('../.././sitio_web/css/Sheylendra_DEMO.ttf') format('ttf');
+    font-family: 'Dancing Script';
+    src: url('../.././sitio_web/ttf/DancingScript-VariableFont_wght.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }
-*/
+
   html,
   body {
 	height: 100%;
