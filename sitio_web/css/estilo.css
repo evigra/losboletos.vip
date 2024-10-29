@@ -1,11 +1,11 @@
-
+/*
 @font-face {
-    font-family: 'Dancing Script';
-    src: url('../.././sitio_web/ttf/DancingScript-VariableFont_wght.ttf') format('ttf');
+    font-family: 'Sheylendra';
+    src: url('../.././sitio_web/css/Sheylendra_DEMO.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }
-
+*/
   html,
   body {
 	height: 100%;
@@ -29,10 +29,12 @@
   }
 
   #separador {
+    position: relative;  
 	width: 100%; /* El ancho siempre será del 100% del contenedor */
     height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
   }
   #separador2 {
+    position: relative;
 	width: 100%; /* El ancho siempre será del 100% del contenedor */
     height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */  
   }

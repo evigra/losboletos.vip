@@ -21,7 +21,10 @@
 
 	}
 
-	$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitado", $objeto->words);
+	if(isset($_REQUEST["action"]))
+		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitado_save", $objeto->words);
+	else
+		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitado", $objeto->words);
 	$objeto->words["html_right"]			="";
 
 	$objeto->words["html_menu"]				=$objeto->__VIEW_BASE("menu", $objeto->words);
