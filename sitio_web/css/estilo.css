@@ -60,21 +60,22 @@
 }
 
 .container {
-	display: flex;
-	justify-content: center; /* Centra horizontalmente */
-	align-items: center;     /* Centra verticalmente */
+	  display: flex;
+	  justify-content: center; /* Centra horizontalmente */
+	  align-items: center;     /* Centra verticalmente */
 
-	text-align: center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
-    font-size:				35px; 
+	  text-align: center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
+    font-size:				30px; 
   }
 
 .titulo {
   font-family: 'Dancing Script', 'Roboto', sans-serif;
-	font-size:			65px; 
+	font-size:			60px; 
+  font-weight: bold;
 }
 .subtitulo {
   font-family: 'Dancing Script', 'Roboto', sans-serif;
-	font-size:			40px; 
+	font-size:			35px; 
 }
 
 .content {
