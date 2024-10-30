@@ -21,6 +21,11 @@
     height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
 }
 
+.sombra {
+  text-shadow: 4px 4px 8px white;
+}
+
+
   #pie {
 	width: 100%; /* El ancho siempre será del 100% del contenedor */
     height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
