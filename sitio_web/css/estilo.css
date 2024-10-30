@@ -22,7 +22,7 @@
 }
 
 .sombra {
-  text-shadow: 0px 0px 8px white;
+  text-shadow: 0px 0px 15px white;
 }
 
 
@@ -71,7 +71,7 @@
 .titulo {
   font-family: 'Dancing Script', 'Roboto', sans-serif;
 	font-size:			60px; 
-  font-weight: bold;
+  font-weight:bolder;
 }
 .subtitulo {
   font-family: 'Dancing Script', 'Roboto', sans-serif;
