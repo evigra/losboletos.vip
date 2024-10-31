@@ -19,8 +19,14 @@
   #cabecera {
     width: 100%; /* El ancho siempre será del 100% del contenedor */
     height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
-}
+  }
 
+  .color {
+    color: grey;
+  }
+  .color2 {
+    color: white;
+  }
 
 
   #pie {
@@ -29,11 +35,20 @@
 
 	
   }
+  .separador {
+    position: relative;  
+	  width: 100%; /* El ancho siempre será del 100% del contenedor */
+    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
+
+  
+  }
 
   #separador {
     position: relative;  
 	  width: 100%; /* El ancho siempre será del 100% del contenedor */
     height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
+
+
   }
   #separador2 {
     position: relative;
@@ -57,24 +72,22 @@
 }
 
 .container {
-	  display: flex;
-	  justify-content: center; /* Centra horizontalmente */
-	  align-items: center;     /* Centra verticalmente */
+	  display:          flex;
+	  justify-content:  center; /* Centra horizontalmente */
+	  align-items:      center;     /* Centra verticalmente */
 
-	  text-align: center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
+	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
     font-size:				30px; 
   }
 
 .titulo {
   text-shadow: 0px 0px 15px goldenrod;
-  color:white;  
   font-family: 'Dancing Script', 'Roboto', sans-serif;
 	font-size:			60px; 
   font-weight:bolder;
 }
 .subtitulo {
   text-shadow: 0px 0px 15px s;
-  color:white;
   font-family: 'Dancing Script', 'Roboto', sans-serif;
 	font-size:			35px; 
 }
