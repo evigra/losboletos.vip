@@ -66,15 +66,6 @@
 	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
     font-size:				30px; 
   }
-  .container2 {
-    display:          flex;
-    width:            100%;
-    justify-content:  center; /* Centra horizontalmente */
-	  align-items:      center;     /* Centra verticalmente */
-
-	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
-    font-size:				30px; 
-  }
 
 
 
