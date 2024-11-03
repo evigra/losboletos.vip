@@ -8,11 +8,9 @@
 */
   html,
   body {
-	height: 100%;
+	  height: 100%;
     margin: 0;
     padding: 0;  
-
-
     font-family: 'Roboto', sans-serif;
   }
 
@@ -22,38 +20,33 @@
   }
 
   .color {
-    color: grey;
+    color:        grey;
   }
-  .color2 {
-    color: white;
+  .color2 {  
+    color:        white;
   }
 
 
   #pie {
-	  width: 100%; /* El ancho siempre será del 100% del contenedor */
-    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
-
-	
+	  width:            100%; /* El ancho siempre será del 100% del contenedor */
+    height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
   }
   .separador {
-    position: relative;  
-	  width: 100%; /* El ancho siempre será del 100% del contenedor */
-    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
-
-  
+    position:         relative;  
+	  width:            100%; /* El ancho siempre será del 100% del contenedor */
+    height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
   }
 
   #separador {
-    position: relative;  
-	  width: 100%; /* El ancho siempre será del 100% del contenedor */
-    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
-
-
+    position:         relative;  
+	  width:            100%; /* El ancho siempre será del 100% del contenedor */
+    height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
   }
+
   #separador2 {
-    position: relative;
-	  width: 100%; /* El ancho siempre será del 100% del contenedor */
-    height: 100%; /* La altura ocupará el 100% de la pantalla del dispositivo */  
+    position:         relative;
+	  width:            100%; /* El ancho siempre será del 100% del contenedor */
+    height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */  
   }
 
 
@@ -62,7 +55,7 @@
 	  display:          block;
 	  justify-content:  center; /* Centra horizontalmente */
 	  align-items:      center;     /* Centra verticalmente */
-    align-content:center;
+    align-content:    center;
 	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
     font-size:				30px; 
   }
@@ -70,26 +63,26 @@
 
 
 .titulo {
-  text-shadow: 0px 0px 15px goldenrod;
-  font-family: 'Dancing Script', 'Roboto', sans-serif;
-	font-size:			60px; 
-  font-weight:bolder;
+  text-shadow:        0px 0px 15px goldenrod;
+  font-family:        'Dancing Script', 'Roboto', sans-serif;
+	font-size:			    60px; 
+  font-weight:        bolder;
 }
 .subtitulo {
-  text-shadow: 0px 0px 15px s;
-  font-family: 'Dancing Script', 'Roboto', sans-serif;
-	font-size:			35px; 
+  text-shadow:        0px 0px 15px s;
+  font-family:        'Dancing Script', 'Roboto', sans-serif;
+	font-size:			    35px; 
 }
 
 .content {
-    position: relative;
-    z-index: 1; /* Asegura que el contenido esté delante del fondo */
-    padding: 50px;
+    position:         relative;
+    z-index:          1; /* Asegura que el contenido esté delante del fondo */
+    padding:          50px;
 }
 
 td {
-  text-align: left;
-  vertical-align: top;
+  text-align:         left;
+  vertical-align:     top;
 }
 
 
