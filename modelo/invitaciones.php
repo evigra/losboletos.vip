@@ -51,7 +51,7 @@
 				$url_qr	=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
 
-				$text_wa=urlencode("{$data["nombre_invitado"]} \n\n Por compartir momentos valiosos, \n\n deseamos que nos acompañes en este momento tan especial  \n\n ") . $url_text . $url_qr;
+				$text_wa=urlencode("{$data["nombre_invitado"]} \n\n Por compartir momentos valiosos, \n\n deseamos que nos acompañes en este momento tan especial  \n\n ") . $url_text . " " . $url_qr;
 
 
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
