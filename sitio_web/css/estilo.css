@@ -62,7 +62,7 @@
 	  display:          block;
 	  justify-content:  center; /* Centra horizontalmente */
 	  align-items:      center;     /* Centra verticalmente */
-
+    align-content:center;
 	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
     font-size:				30px; 
   }
