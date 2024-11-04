@@ -5,7 +5,7 @@
        <!--
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTDTeSJ3Uu3hHCy73RzGoJbx6vmKcmmUI&v=weekly"></script>
         -->
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>        
         <meta name="description" content="{html_head_description}" />
         <meta name="keywords" content="{html_head_keywords}" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -118,7 +118,13 @@ window.addEventListener('scroll', function() {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evitar números negativos
 });
 */
-      </script>
+         const contenido = document.getElementById('content');
+         html2pdf()
+             .from(contenido)
+             .save('pagina.pdf');
+
+
+        </script>
 
     </body>    
 </html>
