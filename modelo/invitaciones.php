@@ -58,7 +58,7 @@ Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos
 Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n
 Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n
 Esperamos contar con tu puntual asistencia.\n 
-Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n
+Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 ") . $url_text;
 
 				
@@ -70,8 +70,9 @@ Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n
 				$datas.="
 					<tr>
 						<td>
-							{$data["nombre_invitado"]} <br>
-							<input name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\">
+							<input class=\"subtitulo2\" style=\"width:50px;\" name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
+							{$data["nombre_invitado"]}
+							
 						</td>
 						<td>
 							<a href=\"$wa\">{$data["telefono_invitado"]}</a><br>
