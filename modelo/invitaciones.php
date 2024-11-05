@@ -53,7 +53,7 @@
 
 
 				$text_wa=urlencode("{$data["nombre_invitado"]} \n
-Nos complace enviarte la invitación a un evento muy especial para nosotros: Nuestra boda. \n
+Nos complace enviarte la invitación para {$data["numero_invitado"]} personas, a un evento muy especial para nosotros: Nuestra boda. \n
 Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
 Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n
 Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n
