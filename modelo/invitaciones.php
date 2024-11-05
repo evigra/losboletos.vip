@@ -44,11 +44,12 @@
 			
 			foreach($this->datas as $data)
 			{	
+				$id_invitado	=@md5($data["id_invitado"]);
 				#nucleo/qrlib/imagen_qr.php?data=
-				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=http://losboletos.vip/invitacion/show/&id=" . md5($data["id_invitado"]);
+				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=http://losboletos.vip/invitacion/show/&id=" . $id_invitado;
 
-				$url_text	=urlencode("http://losboletos.vip/invitacion/show/&id=" . md5($data["id_invitado"]));
-				$url_qr	=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
+				$url_text	=urlencode("http://losboletos.vip/invitacion/show/&id=" . $id_invitado);
+				$url_qr		=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
 
 				$text_wa=urlencode("{$data["nombre_invitado"]} \n
@@ -68,7 +69,10 @@ Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n
 				
 				$datas.="
 					<tr>
-						<td>{$data["nombre_invitado"]}</td>
+						<td>
+							{$data["nombre_invitado"]} <br>
+							<input name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\">
+						</td>
 						<td>
 							<a href=\"$wa\">{$data["telefono_invitado"]}</a><br>
 							{$data["email_invitado"]}
@@ -82,6 +86,34 @@ Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n
 
 			return parent::__CONSTRUCT($option);
 		}
+		public function __SAVE()
+    	{
+
+			$comando_sql				="
+				SELECT * 
+				FROM 
+					evento e left join 
+					invitado i on i.id_evento=md5(e.id_evento)
+				WHERE
+					md5(e.id_evento)='{$_REQUEST["id"]}'
+			";				
+			$this->datas				= $this->__EXECUTE($comando_sql);
+
+			foreach($this->datas as $data)
+			{	
+				$campo	="inv_" . md5($data["id_invitado"]);
+				$valor	=$_REQUEST[$campo];
+
+				$comando_sql="
+					UPDATE invitado SET numero_invitado=\"$valor\" 
+					WHERE
+						id_invitado='{$data["id_invitado"]}'
+				";
+				$this->__EXECUTE($comando_sql);				
+				
+			}
+		}    	
+
 	}
 ?>
 -
