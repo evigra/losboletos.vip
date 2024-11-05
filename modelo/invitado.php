@@ -22,7 +22,7 @@
 			$comando_sql				="
 				SELECT * 
 				FROM 
-					evento e join 
+					evento e left join 
 					invitado i on i.id_evento=e.id_evento
 				WHERE
 					i.id_invitado='{$_REQUEST["id"]}'
