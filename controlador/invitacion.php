@@ -19,13 +19,16 @@
 
 	$objeto->words["html_left"]				="";
 
-	if($_REQUEST["method"]=="show")
-	{
+	#$objeto->__PRINT_R($_REQUEST);
 
 
-	}
+	if(isset($_REQUEST["estado"]) and $_REQUEST["estado"]=="ingreso")
+		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion_ingreso", $objeto->words);
+	else
+		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion", $objeto->words);
 
-	$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion", $objeto->words);
+
+	
 	$objeto->words["html_right"]			="";
 
 	$objeto->words["html_menu"]				=$objeto->__VIEW_BASE("menu", $objeto->words);

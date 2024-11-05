@@ -19,7 +19,7 @@
 			$comando_sql				="
 				SELECT * 
 				FROM 
-					evento e join 
+					evento e left join 
 					invitado i on i.id_evento=e.id_evento
 				WHERE
 					md5(e.id_evento)='{$_REQUEST["id"]}'

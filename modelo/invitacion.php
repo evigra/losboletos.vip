@@ -11,10 +11,13 @@
          
 		public function __CONSTRUCT($option=null)
 		{	
+
+
 			if(isset($_REQUEST["action"]))
 			{
 				$this->__SAVE($_REQUEST["action"]);
 			}
+			
 			$this->__INI();
 
 
