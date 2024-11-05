@@ -58,13 +58,9 @@ Personas positivas que nos acompañen con alegría y buena vibra en ese momento 
 Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n
 Esperamos contar con tu puntual asistencia.\n 
 Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n
-
-				") . $url_text;
+") . $url_text;
 
 				
-
-
-
 
 
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
