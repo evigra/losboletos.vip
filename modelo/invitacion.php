@@ -17,7 +17,7 @@
 			{
 				$this->__SAVE($_REQUEST["action"]);
 			}
-			
+
 			$this->__INI();
 
 
@@ -25,7 +25,7 @@
 				SELECT * 
 				FROM 
 					evento e join 
-					invitado i on i.id_evento=e.id_evento
+					invitado i on i.id_evento=md5(e.id_evento)
 				WHERE
 					md5(i.id_invitado)='{$_REQUEST["id"]}'
 			";				
