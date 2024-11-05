@@ -57,12 +57,11 @@
 	  align-items:      center;     /* Centra verticalmente */
     align-content:    center;
 	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
-    font-size:				20px; 
+    font-size:				15px; 
   }
 
 .cursiva {
   font-family:        'Dancing Script', 'Roboto', sans-serif;
-	font-size:			    60px; 
   font-weight:        bolder;
 }
 
