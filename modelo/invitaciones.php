@@ -30,7 +30,7 @@
 
 			$datas="";
 
-			$url_evento="http://losboletos.vip/invitado/show/&id=1". $_REQUEST["id"];
+			$url_evento="http://losboletos.vip/invitado/show/&id=". $_REQUEST["id"];
 			#$url_evento="http://losboletos.vip/invitado/show/&id=1";
 			$wa1_evento="https://wa.me/+52{$this->datas[0]["tel1_evento"]}?text=". urlencode($url_evento);
 			$wa2_evento="https://wa.me/+52{$this->datas[0]["tel2_evento"]}?text=". urlencode($url_evento);
