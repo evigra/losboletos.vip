@@ -31,7 +31,7 @@
 			#$this->__PRINT_R($this->fields);
 
 			if($this->fields["status_gral_invitado"]=="ACEPTAR")			
-				$this->words["qr"]	= $this->__QR("http://losboletos.vip/invitacion/show/&id=" . md5($_REQUEST["id"]), 400);
+				$this->words["qr"]	= $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . md5($_REQUEST["id"]), 400);
 
 			if($this->fields["lsalon_evento"]!="")			
 				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
