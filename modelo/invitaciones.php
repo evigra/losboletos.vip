@@ -20,7 +20,7 @@
 				SELECT * 
 				FROM 
 					evento e left join 
-					invitado i on i.id_evento=e.id_evento
+					invitado i on i.id_evento=md5(e.id_evento)
 				WHERE
 					md5(e.id_evento)='{$_REQUEST["id"]}'
 			";				
