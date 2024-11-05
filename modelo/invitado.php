@@ -25,10 +25,13 @@
 					evento e left join 
 					invitado i on i.id_evento=e.id_evento
 				WHERE
-					i.id_invitado='{$_REQUEST["id"]}'
-			";				
-			$this->fields		= $this->__EXECUTE($comando_sql)[0];
-			$this->words 		= array_merge($this->words, $this->fields);
+					md5(e.id_evento)='{$_REQUEST["id"]}'
+					
+			";		
+			#i.id_invitado='{$_REQUEST["id"]}'		
+			$this->fields		= @$this->__EXECUTE($comando_sql)[0];
+			if(is_array($this->fields))
+				$this->words 		= @array_merge(@$this->words, @$this->fields);
 
 			return parent::__CONSTRUCT($option);
 		}
