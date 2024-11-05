@@ -51,13 +51,13 @@
 				$url_qr	=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
 
-				$text_wa=urlencode("{$data["nombre_invitado"]} \n\n
-				Nos complace enviarte la invitación a un evento muy especial para nosotros: Nuestra boda. \n\n 
-				Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n\n 
-				Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n\n 
-				Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n\n 
-				Esperamos contar con tu puntual asistencia.\n 
-				Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n\n 
+				$text_wa=urlencode("{$data["nombre_invitado"]} \n
+Nos complace enviarte la invitación a un evento muy especial para nosotros: Nuestra boda. \n
+Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
+Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n
+Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n
+Esperamos contar con tu puntual asistencia.\n 
+Confirmamos antes del 17 de Noviembre por medio del siguiente link:\n
 
 				") . $url_text;
 
