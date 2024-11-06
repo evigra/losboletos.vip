@@ -63,9 +63,12 @@
 
 		public function __SAVE($option=null)
 		{	
+			$numero_invitado="";
+			if(isset($_REQUEST["numero_invitado"]))
+				$numero_invitado=", numero_invitado='{$_REQUEST["numero_invitado"]}'";
 
 			$comando_sql				="
-				UPDATE invitado SET status_gral_invitado='$option', numero_invitado='{$_REQUEST["numero_invitado"]}'
+				UPDATE invitado SET status_gral_invitado='$option' $numero_invitado
 				WHERE
 					md5(id_invitado)='{$_REQUEST["id"]}'
 			";
