@@ -45,7 +45,7 @@
 			$this->words["option_invitado"]="";
 			for($a=1;$a<=$this->fields["numero_invitado"]; $a++)
 			{
-				$this->words["option_invitado"] .="<option value=\"$a\"> $a </option>";
+				$this->words["option_invitado"] ="<option value=\"$a\"> $a </option>" . $this->words["option_invitado"];
 			}	
 
 			$this->words 		= array_merge($this->words, $this->fields);
