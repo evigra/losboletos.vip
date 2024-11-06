@@ -53,7 +53,7 @@
 		{	
 
 			$comando_sql				="
-				UPDATE invitado SET status_gral_invitado='$option'
+				UPDATE invitado SET status_gral_invitado='$option', numero_invitado='{$_REQUEST["numero_invitado"]}'
 				WHERE
 					md5(id_invitado)='{$_REQUEST["id"]}'
 			";
