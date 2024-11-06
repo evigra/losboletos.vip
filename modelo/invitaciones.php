@@ -67,6 +67,10 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$text_wa";
 				
+				$status_invitado="";
+				if($data["status_gral_invitado"]=="ACEPTAR")	$status_invitado ="background-color: green;";
+				if($data["status_gral_invitado"]=="CANCELAR")	$status_invitado ="background-color: red;";
+
 				$datas.="
 					<tr>
 						<td>
@@ -78,7 +82,7 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 							<a href=\"$wa\">{$data["telefono_invitado"]}</a><br>
 							{$data["email_invitado"]}
 						</td>
-						<td>{$data["status_gral_invitado"]}</td>
+						<td style=\"\">{$data["status_gral_invitado"]}</td>
 					</tr>
 				";
 			}
