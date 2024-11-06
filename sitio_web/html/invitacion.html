@@ -52,7 +52,11 @@
 
 <div class="container titulo">{nombre_invitado}</div>
     <div class="container subtitulo">
-        Deseamos que nos acompañen <br> con toda su alegría y buena vibra <br> a Nuestra boda. <br>({numero_invitado} personas)<br>
+        Deseamos que nos acompañen <br> con toda su alegría y buena vibra <br> a Nuestra boda. <br>
+        <select name="numero_invitado" class="subtitulo">
+            {option_invitado}
+        </select>
+    
     </div>        
 </div>        
 <table class="subtitulo" border="0" style="width: 100%;">
@@ -66,9 +70,6 @@
 <div class="container">    
     <font value="ACEPTAR" type="button">CONFIRMAR</font>
     
-    <select name="numero_invitado" class="subtitulo">
-        {option_invitado}
-    </select>
     <font value="CANCELAR" type="button">CANCELAR</font>
 </div>
 
