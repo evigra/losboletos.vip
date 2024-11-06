@@ -34,7 +34,12 @@
 			#$this->__PRINT_R($this->fields);
 
 			if($this->fields["status_gral_invitado"]=="ACEPTAR")			
-				$this->words["qr"]	= $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
+			{
+				$imagen_qr = $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
+
+				$this->words["qr"] = "$imagen_qr <br> INVITACION CONFIRMADA <br>" . md5($this->fields["id_invitado"]);	
+			}
+				
 
 			if($this->fields["lsalon_evento"]!="")			
 				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
@@ -45,7 +50,7 @@
 			$this->words["option_invitado"]="";
 			for($a=1;$a<=$this->fields["numero_invitado"]; $a++)
 			{
-				
+
 				$this->words["option_invitado"] ="<option value=\"$a\"> $a Personas</option>" . $this->words["option_invitado"];
 
 			}	
