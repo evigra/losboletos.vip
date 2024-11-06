@@ -42,6 +42,11 @@
 			if($this->fields["lmisa_evento"]!="")			
 				$this->words["map_misa"]	= $this->__MAP($this->fields["lmisa_evento"]);
 
+			$this->words["option_invitado"]="";
+			for($a=1;$a<=$this->fields["numero_invitado"]; $a++)
+			{
+				$this->words["option_invitado"] .="<option value=\"$a\"> $a </option>";
+			}	
 
 			$this->words 		= array_merge($this->words, $this->fields);
 
