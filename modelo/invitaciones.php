@@ -82,7 +82,7 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 							<a href=\"$wa\">{$data["telefono_invitado"]}</a><br>
 							{$data["email_invitado"]}
 						</td>
-						<td style=\"\">{$data["status_gral_invitado"]}</td>
+						<td style=\"$status_invitado\">{$data["status_gral_invitado"]}</td>
 					</tr>
 				";
 			}
