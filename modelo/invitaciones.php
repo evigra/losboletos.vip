@@ -79,14 +79,14 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 				if($data["status_gral_invitado"]=="CANCELAR")	$status_invitado ="background-color: red;";
 
 				$datas.="
-					<tr style=\"height:50px; vertical-align: middle;\">
-						<td>
+					<tr>
+						<td style=\"height:50px; vertical-align: middle;\">
 							<input class=\"subtitulo2\" style=\"width:50px;\" name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
 						</td>
-						<td>
+						<td style=\"height:50px; vertical-align: middle;\">
 							<a href=\"$wa\">{$data["nombre_invitado"]}</a>
 						</td>
-						<td style=\"$status_invitado\">$mesa_invitado</td>
+						<td style=\"height:50px; vertical-align: middle; $status_invitado \">$mesa_invitado</td>
 					</tr>
 				";
 			}
