@@ -41,7 +41,8 @@
 
 			$this->words["tel1_evento"]	= $this->datas[0]["tel1_evento"];
 			$this->words["tel2_evento"]	= $this->datas[0]["tel2_evento"];
-			
+			$invitados_confirmados=0;
+			$invitados_espera=0;
 			foreach($this->datas as $data)
 			{	
 				$id_invitado	=@md5($data["id_invitado"]);
@@ -62,8 +63,6 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 ") . $url_text;
 
 				
-
-
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$text_wa";
 				
@@ -71,9 +70,14 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 				$mesa_invitado="";
 				if($data["status_gral_invitado"]=="ACEPTAR")	
 				{
+					$invitados_confirmados+=intval($data["numero_invitado"]);
 					$status_invitado ="background-color: green;";
 					$mesa_invitado="<input class=\"subtitulo2\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
 
+				}
+				else
+				{
+					$invitados_espera+=intval($data["numero_invitado"]);					
 				}
 					
 				if($data["status_gral_invitado"]=="CANCELAR")	$status_invitado ="background-color: red;";
@@ -95,6 +99,8 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 				";
 			}
 			
+			$this->words["invitados_confirmados"]=$invitados_confirmados;
+			$this->words["invitados_espera"]=$invitados_espera;
 			$this->words["datos"]=$datas;
 
 			return parent::__CONSTRUCT($option);

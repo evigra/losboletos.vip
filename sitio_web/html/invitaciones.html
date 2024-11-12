@@ -6,17 +6,33 @@
 
 <div class="container">   {qr_evento} </div>
 
+<div class="container">   
+    <table border="1" class="subtitulo">
+        <tr style="background-color: gray;">
+            <td width="500">CONFIRMADOS</td>
+            <td>{invitados_confirmados}</td>
+        </tr>
+        <tr style="background-color: gray;">
+            <td width="500">EN ESPERA</td>
+            <td>{invitados_espera}</td>
+        </tr>
+    </table>
+        
+</div>
+
+
+<br><br>
+
 <div class="container">    
     <font value="ACEPTAR" type="button">GUARDAR INFORMACION CAPTURADA</font>
 </div>
 <br><br>
-
-<table border="1" width="100%" class="container">
+<table border="1" width="100%" class="subtitulo">
     <tr style="background-color: gray;">
         <td width="70">INV.</td>
         <td width="70">MESA</td>
         <td>CONTACTO</td>
-        <td >STATUS</td>
+        <td>STATUS</td>
     </tr>
     {datos}
 </table>
