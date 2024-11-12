@@ -82,12 +82,9 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 					<tr>
 						<td>
 							<input class=\"subtitulo2\" style=\"width:50px;\" name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
-							{$data["nombre_invitado"]}
-							
 						</td>
 						<td>
-							<a href=\"$wa\">{$data["telefono_invitado"]}</a><br>
-							{$data["email_invitado"]}
+							<a href=\"$wa\">{$data["nombre_invitado"]}</a>
 						</td>
 						<td style=\"$status_invitado\">$mesa_invitado</td>
 					</tr>
