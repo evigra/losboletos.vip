@@ -43,6 +43,7 @@
 			$this->words["tel2_evento"]	= $this->datas[0]["tel2_evento"];
 			$invitados_confirmados=0;
 			$invitados_espera=0;
+			$invitados_cancelados=0;
 			foreach($this->datas as $data)
 			{	
 				$id_invitado	=@md5($data["id_invitado"]);
@@ -75,6 +76,11 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 					$mesa_invitado="<input class=\"subtitulo\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
 
 				}
+				elseif($data["status_gral_invitado"]=="CENCELAR")
+				{
+					$invitados_cancelados+=intval($data["numero_invitado"]);	
+
+				}
 				else
 				{
 					$invitados_espera+=intval($data["numero_invitado"]);					
@@ -101,6 +107,8 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 			
 			$this->words["invitados_confirmados"]=$invitados_confirmados;
 			$this->words["invitados_espera"]=$invitados_espera;
+			$this->words["invitados_cancelados"]=$invitados_cancelados;
+			
 			$this->words["datos"]=$datas;
 
 			return parent::__CONSTRUCT($option);
