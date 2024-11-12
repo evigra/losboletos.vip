@@ -80,13 +80,13 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 
 				$datas.="
 					<tr>
-						<td style=\"height:50px; vertical-align: middle;\">
+						<td style=\"height:70px; vertical-align: middle;\">
 							<input class=\"subtitulo2\" style=\"width:50px;\" name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
 						</td>
-						<td style=\"height:50px; vertical-align: middle;\">
+						<td style=\"height:70px; vertical-align: middle;\">
 							<a href=\"$wa\">{$data["nombre_invitado"]}</a>
 						</td>
-						<td style=\"height:50px; vertical-align: middle; $status_invitado \">$mesa_invitado</td>
+						<td style=\"height:70px; vertical-align: middle; $status_invitado \">$mesa_invitado</td>
 					</tr>
 				";
 			}
@@ -110,15 +110,16 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 
 			foreach($this->datas as $data)
 			{	
-				$campo	="inv_" . md5($data["id_invitado"]);
-				$valor	=$_REQUEST[$campo];
+				
+				$invitaciones	=$_REQUEST["inv_" . md5($data["id_invitado"])];
+				$mesa			=$_REQUEST["mesa_" . md5($data["id_invitado"])];
 
 				$comando_sql="
-					UPDATE invitado SET numero_invitado=\"$valor\" 
+					UPDATE invitado SET numero_invitado=\"$invitaciones\", mesa_invitado=\"$mesa\" 
 					WHERE
 						id_invitado='{$data["id_invitado"]}'
 				";
-				$this->__EXECUTE($comando_sql);				
+				@$this->__EXECUTE($comando_sql);				
 				
 			}
 		}    	
