@@ -72,7 +72,7 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 				{
 					$invitados_confirmados+=intval($data["numero_invitado"]);
 					$status_invitado ="background-color: green;";
-					$mesa_invitado="<input class=\"subtitulo2\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
+					$mesa_invitado="<input class=\"subtitulo\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
 
 				}
 				else
@@ -85,7 +85,7 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 				$datas.="
 					<tr>
 						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
-							<input class=\"subtitulo2\" style=\"width:50px;\"  name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
+							<input class=\"subtitulo\" style=\"width:50px;\"  name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
 						</td>
 						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
 							$mesa_invitado
