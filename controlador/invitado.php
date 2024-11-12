@@ -23,7 +23,7 @@
 
 	if(isset($_REQUEST["action"]))
 	{
-		if()
+		
 		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitado_save", $objeto->words);
 
 
