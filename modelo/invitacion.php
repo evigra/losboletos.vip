@@ -48,10 +48,11 @@
 				$this->words["map_misa"]	= $this->__MAP($this->fields["lmisa_evento"]);
 
 			$this->words["option_invitado"]="";
+			$checked="";
 			for($a=1;$a<=$this->fields["numero_invitado"]; $a++)
 			{
-
-				$this->words["option_invitado"] ="<option value=\"$a\"> $a Personas</option>" . $this->words["option_invitado"];
+				if($a==$this->fields["numero_invitado"])	$checked="checked";
+				$this->words["option_invitado"] ="<option value=\"$a\" $checked > $a Personas</option>" . $this->words["option_invitado"];
 
 			}	
 
