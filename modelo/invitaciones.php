@@ -115,8 +115,8 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 			foreach($this->datas as $data)
 			{	
 				
-				$invitaciones	=$_REQUEST["inv_" . md5($data["id_invitado"])];
-				$mesa			=$_REQUEST["mesa_" . md5($data["id_invitado"])];
+				$invitaciones	=@$_REQUEST["inv_" . md5($data["id_invitado"])];
+				$mesa			=@$_REQUEST["mesa_" . md5($data["id_invitado"])];
 
 				$comando_sql="
 					UPDATE invitado SET numero_invitado=\"$invitaciones\", mesa_invitado=\"$mesa\" 
