@@ -93,14 +93,14 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
 							<input class=\"subtitulo\" style=\"width:50px;\"  name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
 						</td>
-						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
+						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;  $status_invitado \">
 							$mesa_invitado
 						</td>
 
 						<td style=\"height:70px; vertical-align: middle;\">
 							<a href=\"$wa\">{$data["nombre_invitado"]}</a>
 						</td>
-						<td width=\"40\" style=\"height:70px; text-align:center; vertical-align: middle; $status_invitado \"></td>
+						<td width=\"40\" style=\"height:70px; text-align:center; vertical-align: middle;\">{$data["fecha_gral_invitado"]}</td>
 					</tr>
 				";
 			}
