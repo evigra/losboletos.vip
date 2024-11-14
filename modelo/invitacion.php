@@ -70,7 +70,7 @@
 
 			if(isset($_REQUEST["action"]))
 			{
-				$complemento_sql=", fecha_gral_invitado='" . date('Y-m-d H:i:s') . "'";
+				$complemento_sql=", fecha_gral_invitado='" . date('Y-m-d') . "'";
 			}
 	
 				
