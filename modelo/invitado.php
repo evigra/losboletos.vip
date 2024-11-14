@@ -42,8 +42,8 @@
 			if(isset($_REQUEST["nombre_invitado"]) and $_REQUEST["nombre_invitado"]!="")
 			{
 				$comando_sql				="
-					INSERT INTO invitado (id_evento,nombre_invitado,telefono_invitado,email_invitado) 
-					VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"{$_REQUEST["telefono_invitado"]}\",\"{$_REQUEST["email_invitado"]}\") 
+					INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado,email_invitado) 
+					VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"{$_REQUEST["pais_telefono_invitado"]}\",\"{$_REQUEST["telefono_invitado"]}\",\"{$_REQUEST["email_invitado"]}\") 
 				";							
 				$this->__EXECUTE($comando_sql);
 			}	
