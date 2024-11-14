@@ -64,12 +64,18 @@
 
 		public function __SAVE($option=null)
 		{	
-			$numero_invitado="";
+			$complemento_sql="";
 			if(isset($_REQUEST["numero_invitado"]))
-				$numero_invitado=", numero_invitado='{$_REQUEST["numero_invitado"]}'";
+				$complemento_sql=", numero_invitado='{$_REQUEST["numero_invitado"]}'";
 
+			if(isset($_REQUEST["action"]))
+			{
+				$complemento_sql=", fecha_gral_invitado='" . date('Y-m-d H:i:s') . "'";
+			}
+	
+				
 			$comando_sql				="
-				UPDATE invitado SET status_gral_invitado='$option' $numero_invitado
+				UPDATE invitado SET status_gral_invitado='$option' $complemento_sql
 				WHERE
 					md5(id_invitado)='{$_REQUEST["id"]}'
 			";
