@@ -65,7 +65,7 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 
 				
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
-				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$text_wa";
+				$wa="https://wa.me/{$data["pais_telefono_invitado"]}{$data["telefono_invitado"]}?text=$text_wa";
 				
 				$status_invitado="";
 				$mesa_invitado="";
