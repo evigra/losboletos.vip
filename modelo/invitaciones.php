@@ -76,7 +76,7 @@ Confirmanos antes del 17 de Noviembre por medio del siguiente link:\n
 					$mesa_invitado="<input class=\"subtitulo\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
 
 				}
-				elseif($data["status_gral_invitado"]=="CENCELAR")
+				elseif($data["status_gral_invitado"]=="CANCELAR")
 				{
 					$invitados_cancelados+=intval($data["numero_invitado"]);	
 
