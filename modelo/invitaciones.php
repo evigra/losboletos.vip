@@ -53,8 +53,8 @@
 				$url_text	=urlencode("http://losboletos.vip/invitacion/show/&id=" . $id_invitado);
 				$url_qr		=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
-
-				$text_wa=urlencode("{$data["nombre_invitado"]} \n
+				if($data["status_gral_invitado"]=="")	
+					$text_wa=urlencode("{$data["nombre_invitado"]} \n
 Nos complace enviarte la invitación para {$data["numero_invitado"]} personas, a un evento muy especial para nosotros: Nuestra boda. \n
 Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
 Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n
@@ -62,7 +62,17 @@ Para el mayor disfrute de todos los que estemos ahí,  este evento se programó 
 Esperamos contar con tu puntual asistencia.\n 
 Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
 ") . $url_text;
-
+ 
+				else	
+					$text_wa=urlencode("{$data["nombre_invitado"]} \n
+				Por situaciones ajenas a nosotros, Nos complace enviarte la invitación para {$data["numero_invitado"]} personas, a un evento muy especial para nosotros: Nuestra boda. \n
+				Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
+				Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n
+				Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n
+				Esperamos contar con tu puntual asistencia.\n 
+				Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
+				") . $url_text;
+				
 				
 				$wa="https://wa.me/+52{$data["telefono_invitado"]}?text=$url_qr";
 				$wa="https://wa.me/{$data["pais_telefono_invitado"]}{$data["telefono_invitado"]}?text=$text_wa";
