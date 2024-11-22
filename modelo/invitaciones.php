@@ -65,12 +65,11 @@ Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del sig
  
 				else	
 					$text_wa=urlencode("{$data["nombre_invitado"]} \n
-Por cuestiones de fuerza mayor, les informamos que nos vemos en la necesidad de cambiar la fecha de la boda. 
-Esta la tendremos que recorrer tres semanas, para realizarse el viernes 27 de Diciembre.
+Por cuestiones de fuerza mayor, les informamos que nos vemos en la necesidad de cambiar la fecha de la boda. \n
+Esta la tendremos que recorrer tres semanas, para realizarse el {$this->datas[0]["fecha_evento"]}.
 Esperamos contar con su valiosa presencia.\n
-La invitación con la nueva fecha la estarán recibiendo en la semana, para que nos apoyen por favor con su nueva confirmación.
 Agradecemos de antemano su comprensión.\n 
-				Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
+Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
 				") . $url_text;
 				
 				
