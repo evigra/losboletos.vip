@@ -141,11 +141,18 @@ Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del sig
 				$invitaciones	=@$_REQUEST["inv_" . md5($data["id_invitado"])];
 				$mesa			=@$_REQUEST["mesa_" . md5($data["id_invitado"])];
 
-				$comando_sql="
-					UPDATE invitado SET numero_invitado=\"$invitaciones\", mesa_invitado=\"$mesa\" 
-					WHERE
-						id_invitado='{$data["id_invitado"]}'
-				";
+				if($invitaciones==0)
+					$comando_sql="
+						DELETE FROM invitado 
+						WHERE
+							id_invitado='{$data["id_invitado"]}'
+					";
+				else
+					$comando_sql="
+						UPDATE invitado SET numero_invitado=\"$invitaciones\", mesa_invitado=\"$mesa\" 
+						WHERE
+							id_invitado='{$data["id_invitado"]}'
+					";
 				@$this->__EXECUTE($comando_sql);				
 				
 			}
