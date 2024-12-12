@@ -11,7 +11,13 @@
          
 		public function __CONSTRUCT($option=null)
 		{	
+			$aux_comando="";
+			if(isset($_REQUEST["id_invitado"]))
+			{
+				$aux_comando=" AND i.id_invitado='{$_REQUEST["id_invitado"]}'";
+			}
 			
+
 			if(isset($_REQUEST["action"]))
 			{
 				$this->__SAVE();
@@ -23,11 +29,14 @@
 				SELECT * 
 				FROM 
 					evento e left join 
-					invitado i on i.id_evento=e.id_evento
+					invitado i on i.id_evento=md5(e.id_evento)
 				WHERE
 					md5(e.id_evento)='{$_REQUEST["id"]}'
-					
+					$aux_comando
+				LIMIT 1	
 			";		
+
+			#echo $comando_sql;
 			#i.id_invitado='{$_REQUEST["id"]}'		
 			$this->fields		= @$this->__EXECUTE($comando_sql)[0];
 			if(is_array($this->fields))
@@ -41,10 +50,20 @@
 		{	
 			if(isset($_REQUEST["nombre_invitado"]) and $_REQUEST["nombre_invitado"]!="")
 			{
-				$comando_sql				="
-					INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado,email_invitado) 
-					VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",\"" . trim($_REQUEST["telefono_invitado"]) . "\",\"{$_REQUEST["email_invitado"]}\") 
-				";							
+				if(isset($_REQUEST["id_invitado"]) and $_REQUEST["id_invitado"]!="")	
+					$comando_sql				="
+						UPDATE invitado SET 
+							nombre_invitado=\"{$_REQUEST["nombre_invitado"]}\", 
+							pais_telefono_invitado=\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",
+							telefono_invitado=\"" . trim($_REQUEST["telefono_invitado"]) . "\"
+						WHERE 
+							id_invitado=\"{$_REQUEST["id_invitado"]}\"	
+					";							
+				else
+					$comando_sql				="
+						INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado,email_invitado) 
+						VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",\"" . trim($_REQUEST["telefono_invitado"]) . "\",\"{$_REQUEST["email_invitado"]}\") 
+					";							
 				$this->__EXECUTE($comando_sql);
 			}	
 			else

@@ -100,6 +100,9 @@ Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del sig
 				$datas.="
 					<tr>
 						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
+							<a href=\"../../invitado/show/&id={$data["id_evento"]}&id_invitado={$data["id_invitado"]}\"><font class=\"ui-icon ui-icon-pencil\"></font></a> 
+						</td>
+						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
 							<input class=\"subtitulo\" style=\"width:50px;\"  name=\"inv_" . md5($data["id_invitado"]) . "\" value=\"" . $data["numero_invitado"] . "\"> 
 						</td>
 						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;  $status_invitado \">
