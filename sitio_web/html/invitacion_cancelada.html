@@ -15,7 +15,7 @@
 <div class="separador sombra"  style="z-index:20; background-color: white;">    
     <div class="container subtitulo">Nuestra Boda</div>
     <div class="container titulo cursiva">{nombre_evento}</div>
-    <div class="container subtitulo ">Viernes 06 DIC 2024 <br>17:30 horas</div>
+    <div class="container subtitulo ">Viernes 27 DIC 2024 <br>17:30 horas</div>
 </div>
 
 
@@ -42,6 +42,11 @@
         <div class="container subtitulo color2"><b>Padrinos</b></div>
         <div class="container titulo color2 cursiva">Evangelina Granados Rodriguez</div>
         <div class="container titulo color2 cursiva">Jorge Garcia Novela</div>        
+
+        <br><br><br>
+        <div class="container subtitulo color2"><b>Testigos</b></div>
+        <div class="container titulo color2 cursiva">Angelica Aguilar Arias</div>        
+        <div class="container titulo color2 cursiva">Eduardo Vizcaino Granados</div>
 </div>
 
 <div class="separador" style="z-index:100; height: 80px;">
@@ -50,15 +55,29 @@
     </div>
 </div>
 
+
 <div class="container titulo">{nombre_invitado}</div>
     <div class="container subtitulo">
         Te agradecemos que nos hayas informado <br> que no podrán acompañarnos por esta ocasión. <br><br>
         
         Estamos seguros que tendremos muchas más oportunidades y eventos que festejar!<br><br>        
+
+        <select name="numero_invitado" class="subtitulo">
+            {option_invitado}
+        </select>
+
+
     </div>        
 </div>        
 
 <br>
+
+<div class="container">    
+    <font value="ACEPTAR" type="button">CONFIRMADA</font>
+    
+    <font value="CANCELAR" type="button">CANCELADA</font>
+</div>
+
 
 <div id="separador" style="z-index:30;">
     <img src="../.././sitio_web/img/separador2.png" width="100%">
@@ -77,27 +96,191 @@
         <img src="../.././sitio_web/img/separador.png" width="100%">
     </div>
 </div>
-<div class="container titulo">{nombre_invitado}</div>
-    <div class="container subtitulo">
-        Esta invitacion fue cancelada<br>
-        Que tengas excelente día!<br>
-    </div>        
-</div>        
 
 
-
-<div class="container titulo"></div>
-    <div class="container subtitulo">
-        <select name="numero_invitado" class="subtitulo">
-            {option_invitado}
-        </select>
-    
-    </div>        
-</div>        
+<div class="container subtitulo">Cuenta regresiva</div>
 <br>
 
-<div class="container">    
-    <font value="ACEPTAR" type="button">CONFIRMADA</font>
-    
-    <font value="CANCELAR" type="button">CANCELADA</font>
+<div class="container titulo" id="timer"></div>
+
+
+
+
+<div id="separador" style="z-index:30;">
+    <img src="../.././sitio_web/img/separador2.png" width="100%">
 </div>
+
+<div id="separador" class="sombra" style="position: relative; height: 1px;">
+    <div style="position:absolute; top:-60px; left: 50%; z-index:20;">
+        <img src="../.././sitio_web/img/fondo3.jpg" width="100%">
+    </div>
+    <div style="position:absolute; top:-60px; right: 50%; z-index:20;">
+        <img src="../.././sitio_web/img/fondo4.jpg" width="100%">
+    </div>
+</div>
+<div id="separador" class="sombra" style="z-index:20;  height: 350px; ">
+    <!--
+
+    <div class="container subtitulo color2"><b>Ceremonia</b></div>
+    <div class="container titulo color2">{misa_evento}</div>
+    <div class="container">{fmisa_evento}</div>
+    -->
+</div>         
+
+<div class="separador" style="z-index:100; height: 150px;">
+    <div style="position:absolute; top: -150px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>
+</div>
+
+<div class="container titulo"><b>Orden del Dia</b></div>
+<div class="container" style="text-align: center;">
+
+<table class="subtitulo" border="0" style="margin: auto; width: 570px; ">
+    <tr><td width="120">17:30</td><td width="450">Recepcion de invitados</td></tr>
+    <tr><td>17:45</td><td>Boda<br>
+        Cocteles y Fotos. <br>    
+        Encendido de velas de buenos deseos</td></tr>
+    <tr><td>18:30</td><td>Asignacion de mesas</td></tr>
+    <tr><td>18:45</td><td>Entrada de Novios y Vals</td></tr>
+    <tr><td>19:00</td><td>Apertura de baile</td></tr>
+    <tr><td>19:45</td><td>Cena</td></tr>
+    <tr><td>20:45</td><td>Brindis <br>
+        Lanzamiento de Ramo y Boutonniere</td></tr>
+    <tr><td>21:45</td><td>Corte de pastel, postres</td></tr>
+    <tr><td>23:00</td><td>Chilaquiles, pan y cafe</td></tr>
+</table>
+<br>
+<div class="container subtitulo2">Para un mejor disfrute del evento, <br>éste se programó sólo para adultos.</div>
+
+</div>
+
+
+<div id="separador" style="z-index:30;">
+    <img src="../.././sitio_web/img/separador2.png" width="100%">
+</div>
+
+<div class="separador sombra" style=" height: 100x;">
+    <div style="position:absolute; top:-60px; z-index:20;">
+        <img src="../.././sitio_web/img/fondo5.jpg" width="100%">
+    </div>
+</div>
+
+<div id="separador" class="sombra" style="z-index:20; height: 680px;">
+</div>
+<div class="separador" style="z-index:100; height: 120px;">
+    <div style="position:absolute; top: -190px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>
+</div>
+
+<div id="separador" class="sombra" style="z-index:20; height: 300px;">
+    <div class="container subtitulo">Si es tu deseo hacernos un obsequio, <br>lo podrás hacer en las siguientes mesas de regalos:</div>
+    <div class="container subtitulo">La Marina 2075</div>
+    <div class="container subtitulo">Liverpol 51423238</div>
+</div>
+
+<div id="separador" style="z-index:30;">
+    <img src="../.././sitio_web/img/separador2.png" width="100%">
+</div>
+
+<div class="separador sombra" style=" height: 100x;">
+    <div style="position:absolute; top:-60px; z-index:20;">
+        <img src="../.././sitio_web/img/fondo6.jpg" width="100%">
+    </div>
+</div>
+
+<div id="separador" class="sombra" style="z-index:20; height: 740px;">
+</div>
+<div class="separador" style="z-index:100; height: 120px;">
+    <div style="position:absolute; top: -210px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>
+</div>
+
+
+
+<div class="container titulo"><b>Codigo de Vestimenta: FORMAL</b></div>
+
+<div class="container" style="text-align: center;">
+    <table  border="0" style="margin: auto; width: 800px; ">
+        <tr>
+            <td width="350"><img src="../.././sitio_web/img/codigo.jpg"></td>
+            <td>
+                <div class="container subtitulo" style="text-align: left;">
+                HOMBRES <br>
+                Traje
+                
+                <br><br>
+                MUJERES <br>
+                Vestido largo,<br>
+                El blanco es para la novia!<br>
+                Se sugiere evitar colores beige, nude y rojo. <br>
+                Llevar algo abrigador y tacones cómodos.
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="separador" style="z-index:30;">
+    <img src="../.././sitio_web/img/separador2.png" width="100%">
+</div>
+
+<div class="separador sombra" style=" height: 100x;">
+    <div style="position:absolute; top:-60px; z-index:20;">
+        <img src="../.././sitio_web/img/fondo7.jpg" width="100%">
+    </div>
+</div>
+
+<div id="separador" class="sombra" style="z-index:20; height: 1400px;">
+</div>
+<div class="separador" style="z-index:100; height: 120px;">
+    <div style="position:absolute; top: -190px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>
+</div>
+
+
+
+<div class="container titulo">{salon_evento}</div>
+<div class="container subtitulo">Sera el Lugar</div>
+<div class="container subtitulo">No niños</div>
+<!--
+<div class="container">{fsalon_evento}</div>
+-->
+<div class="container">    
+    {map_salon}
+</div>
+
+<div id="separador" style="z-index:30;">
+    <img src="../.././sitio_web/img/separador2.png" width="100%">
+</div>
+
+<div class="separador sombra" style=" height: 100x;">
+    <div style="position:absolute; top:-60px; z-index:20;">
+        <img src="../.././sitio_web/img/fondo9.jpg" width="100%">
+    </div>
+</div>
+
+<div id="separador" class="sombra" style="z-index:20; height: 710px;">
+</div>
+
+
+<div class="separador" style="z-index:100; height: 120px;">
+
+
+    <div style="position:absolute; top: -190px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>
+</div>
+
+    <div class="container subtitulo">
+        
+        Estamos seguros que tendremos muchas más oportunidades y eventos que festejar!<br><br>        
+
+
+    </div>        
+
+
+

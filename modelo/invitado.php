@@ -39,8 +39,20 @@
 			#echo $comando_sql;
 			#i.id_invitado='{$_REQUEST["id"]}'		
 			$this->fields		= @$this->__EXECUTE($comando_sql)[0];
+
 			if(is_array($this->fields))
 				$this->words 		= @array_merge(@$this->words, @$this->fields);
+
+			if(isset($_REQUEST["id_invitado"]))
+			{
+				$id_invitado	=@md5(    $this->fields["id_invitado"]       );
+
+
+
+				$url_text	="http://losboletos.vip/invitacion/show/&id=" . $id_invitado;
+				$this->words["link_invitacion"]="<a href=\"$url_text\">VER INVITACION</a>";
+			}
+	
 
 			return parent::__CONSTRUCT($option);
 		}
@@ -77,6 +89,7 @@
 			$this->words["qr"]	="";
 			$this->words["map_salon"]	="";
 			$this->words["map_misa"]	="";
+			$this->words["link_invitacion"]="";
 		}		
 	}
 ?>
