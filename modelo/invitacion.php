@@ -39,7 +39,11 @@
 				$imagen_qr = $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
 
 				$this->words["qr"] = "$imagen_qr <br> INVITACION CONFIRMADA <br>" . md5($this->fields["id_invitado"]);	
-				$this->words["qr"] = $imagen_qr;	
+				$this->words["qr"] = "$imagen_qr
+				<div class=\"container subtitulo\">
+				{$this->fields["numero_invitado"]} Personas
+				</div>        
+				";	
 			}			
 			
 			if ($date1_fecha_evento > $date2_fecha_servidor) 
@@ -62,14 +66,6 @@
 					</div>
 				";
 			} 
-			else
-			{
-				$this->words["html_confirmacion_evento"]="
-					<div class=\"container subtitulo\"><br>
-						{$this->fields["numero_invitado"]} Personas
-					</div>        
-				";
-			}
 
 			if($this->fields["lsalon_evento"]!="")			
 				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
