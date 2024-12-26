@@ -11,12 +11,15 @@
          
 		public function __CONSTRUCT($option=null)
 		{	
-
-
 			if(isset($_REQUEST["action"]))
 			{
 				$this->__SAVE($_REQUEST["action"]);
 			}
+
+			$date1_fecha_evento = new DateTime('2024-12-27 17:00');
+			$date1_fecha_evento = new DateTime('2024-12-23 17:00');
+			$date2_fecha_servidor = new DateTime(Date('Y-m-d H:i'));
+
 
 			$this->__INI();
 
@@ -31,15 +34,34 @@
 			";				
 			$this->fields				= $this->__EXECUTE($comando_sql)[0];
 
-			#$this->__PRINT_R($this->fields);
-
 			if($this->fields["status_gral_invitado"]=="ACEPTAR")			
 			{
 				$imagen_qr = $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
 
 				$this->words["qr"] = "$imagen_qr <br> INVITACION CONFIRMADA <br>" . md5($this->fields["id_invitado"]);	
-			}
-				
+				$this->words["qr"] = $imagen_qr;	
+			}			
+			
+			if ($date1_fecha_evento > $date2_fecha_servidor) 
+			{
+				$this->words["html_confirmacion_evento"]="
+					<div class=\"container subtitulo\"><br>
+						<select name=\"numero_invitado\" class=\"subtitulo\">
+							{option_invitado}
+						</select>
+					</div>        
+					<table class=\"subtitulo\" border=\"0\" style=\"width: 100%;\">
+						<tr><td style=\"text-align: center;\" align=\"center\">
+							Favor de confirmar o cancelar <br>antes del {confirmacion_evento}
+						</td></tr>
+					</table>
+					<br>
+					<div class=\"container\">    
+						<font value=\"ACEPTAR\" type=\"button\">CONFIRMADA</font>    
+						<font value=\"CANCELAR\" type=\"button\">CANCELADA</font>
+					</div>
+				";
+			} 
 
 			if($this->fields["lsalon_evento"]!="")			
 				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
@@ -84,10 +106,12 @@
 		}		
 		public function __INI()
 		{	
+			$this->words["html_confirmacion_evento"]="";
 
 			$this->words["qr"]	="";
 			$this->words["map_salon"]	="";
 			$this->words["map_misa"]	="";
+			$this->words["files"]	="";
 
 		}		
 
