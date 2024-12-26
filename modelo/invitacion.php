@@ -62,6 +62,14 @@
 					</div>
 				";
 			} 
+			else
+			{
+				$this->words["html_confirmacion_evento"]="
+					<div class=\"container subtitulo\"><br>
+						{$this->fields["numero_invitado"]} Personas
+					</div>        
+				";
+			}
 
 			if($this->fields["lsalon_evento"]!="")			
 				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
