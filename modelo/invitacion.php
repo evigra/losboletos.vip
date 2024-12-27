@@ -65,6 +65,19 @@
 						<font value=\"CANCELAR\" type=\"button\">CANCELADA</font>
 					</div>
 				";
+			}
+			else
+			{
+				/*
+				$this->words["files"]="
+					<div class=\"container\">   <br> 
+						Compartenos tu fotos !! <br>
+						<input type=\"file\">
+
+					</div>
+
+				";
+				*/
 			} 
 
 			if($this->fields["lsalon_evento"]!="")			
@@ -115,7 +128,7 @@
 			$this->words["qr"]	="";
 			$this->words["map_salon"]	="";
 			$this->words["map_misa"]	="";
-			$this->words["files"]	="";
+			$this->words["files"]		="";
 
 		}		
 
