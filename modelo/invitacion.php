@@ -13,6 +13,8 @@
 		{	
 			if(isset($_REQUEST["action"]))
 			{
+				#$this->__PRINT_R($_REQUEST);
+				#$this->__PRINT_R($_FILES);
 				$this->__SAVE($_REQUEST["action"]);
 			}
 
@@ -68,16 +70,15 @@
 			}
 			else
 			{
-				/*
+				
 				$this->words["files"]="
 					<div class=\"container\">   <br> 
 						Compartenos tu fotos !! <br>
-						<input type=\"file\">
-
+						<input type=\"file\" name=\"files[]\" multiple>
+						<font value=\"CARGAR\" type=\"button\">Subir Fotos</font>    
 					</div>
-
 				";
-				*/
+				
 			} 
 
 			if($this->fields["lsalon_evento"]!="")			
@@ -120,6 +121,96 @@
 			";
 				
 			$this->__EXECUTE($comando_sql);
+
+
+
+
+			$files_available							=array("image/png","image/jpeg", "video/mp4");
+
+			foreach($_FILES["files"] as $field => $values)
+			{		        
+				foreach($values as $row => $data) 
+				{
+					if(in_array($_FILES["files"]["type"][$row], $files_available))
+					{
+						$width 			= 0;
+						$height 		= 0;
+
+						if($field=="name")
+						{
+							$path="files/";
+							/*
+							if(!isset($events_id)) 
+							{
+								$events_id			=$this->__EXECUTE($comando_sql);
+								if(isset($_REQUEST["event"]))
+									$events_id=$events_id[0]["event_id"];
+							}
+							*/
+							$newHeight 		= 0;
+							$newWidth 		= 0;
+							$orientation 	= "";
+
+							$temporal		=$_FILES["files"]["tmp_name"][$row];
+							$temporal_img	=$temporal;
+
+							$vname			=explode(".", $_FILES["files"]["name"][$row]);
+							$extencion		=$vname[count($vname)-1];
+							$extencion_img	=$extencion;
+
+							$vtype			=explode("/", $_FILES["files"]["type"][$row]);
+							$type			=$vtype[0];
+
+							
+							$data_im			=$this->__PROCESS_IMG($temporal_img);							
+							$im					=$data_im["im"];
+							$width				=$data_im["width"];
+							$height				=$data_im["height"];
+							$orientation		=$data_im["orientation"];
+				
+							/*	
+							$comando_sql		="INSERT INTO file (event_id, user_id, extension, temp, height, width,orientation)
+							VALUES(	
+								'$events_id', 
+								'1', 
+								'" . $extencion . "',
+								'" . $temporal ."',									
+								'" . $height . "',
+								'" . $width . "',
+								'" . $orientation . "'
+							)";
+							$file_id			=$this->__EXECUTE($comando_sql);													
+							#*/
+
+							$comando_sql		="INSERT INTO file (invitado_id, evento_id)
+							VALUES(	
+								'{$_REQUEST["id"]}', 
+								'1'
+							)";
+							$file_id			=$this->__EXECUTE($comando_sql);													
+
+							$archivo 			=$path . "file_" . md5($file_id);
+
+							// redimencionada
+							$im->writeImage($archivo.".".$extencion_img );	
+							$th				=$im;
+
+							// thumb
+							$redimencion	=$this->__REDIMENSION(180, $width, $height);								
+							$height 		= $redimencion[0];	
+							$width 			= $redimencion[1];								
+							$th->resizeImage($width,$height, imagick::FILTER_LANCZOS, 0.8, true);					
+
+							$th->writeImage($archivo."_th.".$extencion_img);
+							
+						}						
+					}	
+				}
+			}					
+
+
+
+
 		}		
 		public function __INI()
 		{	
@@ -131,6 +222,62 @@
 			$this->words["files"]		="";
 
 		}		
+
+
+		public function __PROCESS_IMG($temporal)
+    	{    	
+			$im 			= new imagick($temporal);
+					
+			$matrizExif = $im->getImageProperties("exif:*");
+
+			$imageprops 	= $im->getImageGeometry();
+			$width 			= $imageprops['width'];
+			$height 		= $imageprops['height'];
+
+			$redimencion	=$this->__REDIMENSION(700, $width, $height);
+
+			$newWidth 			= $redimencion[1];
+			$newHeight 		= $redimencion[0];	
+			$im->resizeImage($newWidth,$newHeight, imagick::FILTER_LANCZOS, 0.8, true);					
+
+			/*
+			$logo = new Imagick();
+			$logo->readImage("logo.png") or die("Couldn't load $logo");
+			*/
+			if(@$matrizExif["exif:Orientation"]==1)				$orientation 	= "horizontal";										
+			if(@$matrizExif["exif:Orientation"]==6)
+			{
+				$width 			= $newHeight;
+				$height 		= $newWidth;	
+
+				$orientation 	= "vertical";
+				//$logo->rotateimage(new ImagickPixel(), 270);
+			}
+			if(@$matrizExif["exif:Orientation"]==8)
+			{
+				$width 			= $newHeight;
+				$height 		= $newWidth;	
+
+				$orientation 	= "vertical";
+				//$logo->rotateimage(new ImagickPixel(), 90);
+			}
+
+			if(@$orientation=="")
+			{
+				if($height>$width)	$orientation 	= "vertical";
+				else				$orientation 	= "horizontal";
+			}
+
+			$return=array(
+				"im"			=>$im,
+				"width"			=>$width,
+				"height"		=>$height,
+				"orientation"	=>$orientation,
+			);
+			return $return;
+		}		
+
+
 
 	}
 ?>
