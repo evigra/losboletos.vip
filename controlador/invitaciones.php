@@ -4,10 +4,8 @@
 	$objeto			=new invitaciones();
 
 	//$objeto->words["html_head_css"]			="default"; 
-	$objeto->words["html_head_title"]		.="Invitacion";
-	
-	$objeto->words["html_head_description"]		="Esta seccion es un clilaquil de designios";
-	$objeto->words["html_head_keywords"]		="Designia, Designia.vip, Eventos, events";
+	$objeto->words["html_head_title"]			.="Evento";	
+	$objeto->words["html_head_description"]		="Aqui podras administrar los boletos de tus invitados";
 
 	#$objeto->__PRINT_R($_REQUEST);
 	
