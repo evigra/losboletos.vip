@@ -41,6 +41,8 @@
         //const targetDate = new Date("2024/11/06 7:22:00").getTime();
 
         // Actualiza el temporizador cada segundo
+        if(document.getElementById("timer"))
+        {
         const countdown = setInterval(() => {
 
             // Obtiene la fecha y hora actual
@@ -65,7 +67,7 @@
             }
         }, 1000);
 
-    
+        }
 
         if($("[type^='button']").length>0) 
 		{
