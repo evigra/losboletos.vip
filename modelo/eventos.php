@@ -24,6 +24,9 @@
 			";				
 			$this->datas				= $this->__EXECUTE($comando_sql);
 
+
+			
+
 			#$this->__PRINT_R($this->datas);
 
 			$datas="";

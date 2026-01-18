@@ -11,7 +11,7 @@
          
 		public function __CONSTRUCT($option=null)
 		{	
-			$aux_comando="";
+			$aux_comando=" AND i.id_invitado=''";
 			if(isset($_REQUEST["id_invitado"]))
 			{
 				$aux_comando=" AND i.id_invitado='{$_REQUEST["id_invitado"]}'";
@@ -29,10 +29,9 @@
 				SELECT * 
 				FROM 
 					evento e left join 
-					invitado i on i.id_evento=md5(e.id_evento)
+					invitado i on i.id_evento=md5(e.id_evento) $aux_comando
 				WHERE
-					md5(e.id_evento)='{$_REQUEST["id"]}'
-					$aux_comando
+					md5(e.id_evento)='{$_REQUEST["id"]}'					
 				LIMIT 1	
 			";		
 
@@ -40,8 +39,18 @@
 			#i.id_invitado='{$_REQUEST["id"]}'		
 			$this->fields		= @$this->__EXECUTE($comando_sql)[0];
 
+			
+
 			if(is_array($this->fields))
+			{
+				if($this->fields["nombre_invitado"]=="")
+				{
+					$this->fields["nombre_invitado"]="Nombre";
+					$this->fields["telefono_invitado"]="Telefono";
+				}	
 				$this->words 		= @array_merge(@$this->words, @$this->fields);
+			}	
+				
 
 			if(isset($_REQUEST["id_invitado"]))
 			{
@@ -60,7 +69,7 @@
 
 		public function __SAVE()
 		{	
-			if(isset($_REQUEST["nombre_invitado"]) and $_REQUEST["nombre_invitado"]!="")
+			if(isset($_REQUEST["nombre_invitado"]) and ($_REQUEST["nombre_invitado"]!="" OR $_REQUEST["nombre_invitado"]!="Nombre"))
 			{
 				if(isset($_REQUEST["id_invitado"]) and $_REQUEST["id_invitado"]!="")	
 					$comando_sql				="
