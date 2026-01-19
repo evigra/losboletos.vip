@@ -12,6 +12,11 @@
 				$host	="localhost";
 				$db		="losboletos";
 				$type	="mysqli";
+
+				$host	="losboletos.vip";	
+				$db		="losboletos";
+				$type	="mysqli";
+				
 			}
 			if($_SERVER["HTTP_HOST"] == "losboletos.vip")
 			{

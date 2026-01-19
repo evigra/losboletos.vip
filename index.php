@@ -7,7 +7,7 @@
 
 	$path_controlador	="controlador/" . @$_REQUEST["class"] . ".php";
 	$path_modelo		="modelo/" . @$_REQUEST["class"] . ".php";
-
+	
 	if(isset($_REQUEST["abrev"]))
 	{
 		$objeto						=new general();
@@ -39,7 +39,8 @@
 		Header ("Location: $path");			
 	}
 	else if(@file_exists($path_controlador))		
-	{	    	
+	{	   
+		echo "pasa";	 	
 		if(@file_exists($path_modelo))			require_once($path_modelo);			
 		require_once($path_controlador);			
 	}	

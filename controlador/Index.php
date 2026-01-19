@@ -1,10 +1,11 @@
 <?php
-	$objeto			=new general();
+	echo "LEIDO";
+	$objeto			=new index();
 
 	//$objeto->words["html_head_css"]			="default"; 
 	$objeto->words["html_head_title"]		.="Invitacion";
 	
-	$objeto->words["html_head_description"]		="Esta seccion es un clilaquil de designios";
+	$objeto->words["html_head_description"]		="Estas invitado a nuestro evento";
 	$objeto->words["html_head_keywords"]		="Designia, Designia.vip, Eventos, events";
 
 	
