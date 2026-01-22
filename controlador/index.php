@@ -1,5 +1,4 @@
 <?php
-	echo "LEIDO";
 	$objeto			=new index();
 
 	//$objeto->words["html_head_css"]			="default"; 
@@ -12,7 +11,7 @@
 	$objeto->words["html_body"]				=$objeto->__VIEW_BASE("body", $objeto->words);
 
 	$objeto->words["html_left"]				="";
-	$objeto->words["html_center"]			=$objeto->__VIEW_BASE("mapa", $objeto->words);
+	$objeto->words["html_center"]			=$objeto->__VIEW_BASE("index2", $objeto->words);
 	$objeto->words["html_right"]			="";
 
 	$objeto->words["html_menu"]				=$objeto->__VIEW_BASE("menu", $objeto->words);

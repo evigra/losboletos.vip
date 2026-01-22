@@ -39,8 +39,7 @@
 		Header ("Location: $path");			
 	}
 	else if(@file_exists($path_controlador))		
-	{	   
-		echo "pasa";	 	
+	{	    	
 		if(@file_exists($path_modelo))			require_once($path_modelo);			
 		require_once($path_controlador);			
 	}	

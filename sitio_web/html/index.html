@@ -34,13 +34,7 @@
 
       <script>
 
-        // Establece la fecha y hora de destino
-        //const targetDate = new Date("December 31, 2024 23:59:59").getTime();
-        //const targetDate = new Date("2024/12/7 17:30:00").getTime();
         const targetDate = new Date("{timer_evento}").getTime();
-        //const targetDate = new Date("2024/11/06 7:22:00").getTime();
-
-        // Actualiza el temporizador cada segundo
         if(document.getElementById("timer"))
         {
         const countdown = setInterval(() => {
@@ -67,13 +61,12 @@
             }
         }, 1000);
 
-        }
+    }
 
         if($("[type^='button']").length>0) 
 		{
 
             $("[type^='button']").button(); 
-
 			$("[type^='button']").click(function()
 			{            
                 $("#action").val( $(this).attr("value") );    

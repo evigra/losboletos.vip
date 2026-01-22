@@ -8,10 +8,16 @@
 */
   html,
   body {
+    width: 100%;      
 	  height: 100%;
     margin: 0;
     padding: 0;  
     font-family: 'Roboto', sans-serif;
+  }
+
+  form {
+      margin: 0 auto;
+    max-width: 700px;
   }
 
   #cabecera {
@@ -31,11 +37,19 @@
 	  width:            100%; /* El ancho siempre será del 100% del contenedor */
     height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
   }
-  .separador {
+  .separador_foto {
+    z-index:          20;
     position:         relative;  
+    margin:           80px 0px 240px 0px;
 	  width:            100%; /* El ancho siempre será del 100% del contenedor */
     height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
   }
+  .separador_texto {
+    position:         relative; 
+    width:            100%; 
+    
+  }
+
 
   #separador {
     position:         relative;  
@@ -90,6 +104,72 @@
 td {
   text-align:         left;
   vertical-align:     top;
+}
+
+.phone2 {
+  width: 179px;
+  height: 359px;
+  background: #333;
+  border-radius: 19px;
+  padding: 1px;
+  
+}
+
+
+.phone {
+  width: 180px;
+  height: 360px;
+  background: #000;
+  border-radius: 20px;
+  padding: 6px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+/* Parte superior */
+.phone-top {
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.speaker {
+  width: 30px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Pantalla */
+.screen {
+  background: #fff;
+  height: calc(100% - 30px);
+  border-radius: 15px;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+/* Parte inferior */
+.phone-bottom {
+  height: 15px;
+}
+
+/* Contenido de ejemplo */
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card {
+  background: #f2f2f2;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 10px;
 }
 
 
