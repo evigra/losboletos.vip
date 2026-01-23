@@ -52,7 +52,7 @@
 		}	
 		Header ("Location: http://"  . $_REQUEST["server"] . "/Mapa/Show/");			
 	}
-	if(!isset($_REQUEST["class"]))
+	if(!isset($_REQUEST["class"]) or $_REQUEST["class"]="")
 		$_REQUEST["class"]="index";	
 	$pre_path="";	
 ?>
