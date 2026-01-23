@@ -5,6 +5,8 @@
 
 	require_once("nucleo/sesion.php");	
 
+	if($_REQUEST["class"]=="") $_REQUEST["class"]="index";
+
 	$path_controlador	="controlador/" . @$_REQUEST["class"] . ".php";
 	$path_modelo		="modelo/" . @$_REQUEST["class"] . ".php";
 	echo $path_modelo;
