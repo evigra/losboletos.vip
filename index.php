@@ -9,8 +9,6 @@
 
 	$path_controlador	="controlador/" . @$_REQUEST["class"] . ".php";
 	$path_modelo		="modelo/" . @$_REQUEST["class"] . ".php";
-	echo $path_modelo;
-	#echo $_REQUEST["abrev"];	
 	if(isset($_REQUEST["abrev"]))
 	{
 		$objeto						=new general();
