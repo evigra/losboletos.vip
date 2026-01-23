@@ -1,11 +1,6 @@
 <?php
-	echo "ENTRAMOS";		
-	#if(!isset($_REQUEST["datos"]))
-	#	$_REQUEST["datos"]="index/show/";	
 	if(isset($_REQUEST["datos"]) AND $_REQUEST["datos"]=="")					
 		$_REQUEST["datos"]="index/show/";	
-	
-
 	if(isset($_REQUEST["datos"]))	
 	{		
 		if($_REQUEST["datos"]!="")	
@@ -53,7 +48,5 @@
 		}	
 		Header ("Location: http://"  . $_REQUEST["server"] . "/Mapa/Show/");			
 	}
-	#if(!isset($_REQUEST["class"]) or $_REQUEST["class"]="")
-	#	$_REQUEST["class"]="index";	
 	$pre_path="";	
 ?>
