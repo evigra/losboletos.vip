@@ -1,31 +1,12 @@
-<audio id="audioScroll">
+<audio id="miAudio">
   <source src="../.././sitio_web/mp/Beyonce - Halo.mp4" type="audio/mpeg">
 </audio>
 
 <script>
-let audioIniciado = false;
-
-function activarAudio() {
-  if (!audioIniciado) {
-    const audio = document.getElementById("audioScroll");
-    audio.play().catch(() => {});
-    audioIniciado = true;
-
-    // Quitamos los listeners para que no se dispare otra vez
-    window.removeEventListener("scroll", activarAudio);
-    window.removeEventListener("touchstart", activarAudio);
-  }
-}
-
-// Desktop
-window.addEventListener("scroll", activarAudio);
-
-// Móvil
-window.addEventListener("touchstart", activarAudio);
+document.addEventListener("click", () => {
+  document.getElementById("miAudio").play();
+}, { once: true });
 </script>
-
-
-
 
 <img src="../.././sitio_web/img/separador.png" width="100%">
 
