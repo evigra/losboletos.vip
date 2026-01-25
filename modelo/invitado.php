@@ -105,7 +105,7 @@
 				Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
 				") . $url_text;
 
-				$wa="https://wa.me/". trim($_REQUEST["pais_telefono_invitado"]) . trim($data["telefono_invitado"]). "?text=$text_wa";
+				$wa="https://wa.me/". trim($_REQUEST["pais_telefono_invitado"]) . trim($_REQUEST["telefono_invitado"]). "?text=$text_wa";
 
 				header("Location: $wa");
 				exit;				
