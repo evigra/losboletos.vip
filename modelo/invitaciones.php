@@ -16,6 +16,10 @@
 				$this->__SAVE($_REQUEST["action"]);
 			}
 
+			if(!isset($_REQUEST["b"]))
+			{
+				$_REQUEST["b"]=2;
+			}			
 			$comando_sql				="
 				SELECT * 
 				FROM 
@@ -29,13 +33,15 @@
 			#$this->__PRINT_R($this->datas);
 
 			$datas="";
+			$url_evento_base="http://losboletos.vip/invitado/show/&id=". $_REQUEST["id"]."&b=";
 
-			$url_evento="http://losboletos.vip/invitado/show/&id=". $_REQUEST["id"];
+			$url_evento=$url_evento_base . $_REQUEST["b"];
 			#$url_evento="http://losboletos.vip/invitado/show/&id=1";
 			$wa1_evento="https://wa.me/+52{$this->datas[0]["tel1_evento"]}?text=". urlencode($url_evento);
 			$wa2_evento="https://wa.me/+52{$this->datas[0]["tel2_evento"]}?text=". urlencode($url_evento);
 
 			$this->words["qr_evento"]	= $this->__QR($url_evento, 800);
+			$this->words["url_evento"]	= "http://losboletos.vip/invitaciones/show/&id=". $_REQUEST["id"]."&b=";;
 			$this->words["url1_evento"]	= $wa1_evento;
 			$this->words["url2_evento"]	= $wa2_evento;
 

@@ -53,7 +53,11 @@
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Muestra el resultado en un elemento HTML con id="timer"
-            document.getElementById("timer").innerHTML = `${days} Dias<br>${hours} Hrs<br>${minutes} Min<br>${seconds} Seg`;
+            //document.getElementById("timerd").innerHTML = `${days} Dias<br>${hours} Hrs<br>${minutes} Min<br>${seconds} Seg`;
+            document.getElementById("timerd").innerHTML = `${days} Dias`;
+            document.getElementById("timerh").innerHTML = `${hours} Hrs`;
+            document.getElementById("timerm").innerHTML = `${minutes} Min`;
+            document.getElementById("timers").innerHTML = `${seconds} Seg`;
 
             // Si la cuenta atrás ha terminado, detén el temporizador
             if (distance < 0) {

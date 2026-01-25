@@ -19,8 +19,7 @@
 			$comando_sql				="
 				SELECT * 
 				FROM 
-					evento e 
-					
+					evento e 					
 			";				
 			$this->datas				= $this->__EXECUTE($comando_sql);
 
@@ -41,6 +40,11 @@
 				
 				$datas.="
 					<tr>
+					
+						<td width=\"70\" style=\"height:70px; text-align:center; vertical-align: middle;\">
+							<a href=\"../../eventos/show/&id={$data["id_evento"]}\"><font class=\"ui-icon ui-icon-pencil\"></font></a> 
+						</td>
+
 						<td>
 							<a href=\"$wa1_evento\" target=\"_blank\">{$data["tel1_evento"]}</a>
 							<a href=\"$wa1_evento\" target=\"_blank\">{$data["tel2_evento"]}</a>

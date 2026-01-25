@@ -47,6 +47,7 @@
 				{
 					$this->fields["nombre_invitado"]="";
 					$this->fields["telefono_invitado"]="";
+					$this->fields["numero_invitado"]=$_REQUEST["b"];
 				}	
 				$this->words 		= @array_merge(@$this->words, @$this->fields);
 			}	

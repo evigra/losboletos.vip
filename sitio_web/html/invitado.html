@@ -9,17 +9,21 @@
     <br>
     <div class="container titulo cursiva">{nombre_evento}</div>
     <div class="container subtitulo ">{fecha_evento}</div>
+    <br><br><br>
+    <div class="container titulo cursiva">Esta invitacion es para</div>
+    <div class="container titulo">{numero_invitado}</div>
     <div class="container subtitulo2">{qr}</div>
 </div>
 
 
 <div class="separador_texto">
-    <br><br>
+    <br><br><br><br>
     <div class="container subtitulo">DEJANOS TUS DATOS</div><br>
 
             <input name="nombre_invitado" placeholder="NOMBRE COMPLETO" value="{nombre_invitado}" class="subtitulo" style="width: 97%;">  <br>
             <input name="pais_telefono_invitado" placeholder="+52" value="+52" class="subtitulo" style="width: 10%;">
-            <input name="telefono_invitado" placeholder="CELULAR A 10 DIGITOS" value="{telefono_invitado}" class="subtitulo" style="width: 85%;"> <br>
+            <input name="telefono_invitado" placeholder="CELULAR A 10 DIGITOS" value="{telefono_invitado}" class="subtitulo" style="width: 85%;">
+            <input name="numero_invitado" value="{numero_invitado}" type="hidden">
     </div>
     <br>
     <div class="container">    
