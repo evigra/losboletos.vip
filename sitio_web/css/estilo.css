@@ -15,10 +15,6 @@
     font-family: 'Roboto', sans-serif;
   }
 
-  form {
-      margin: 0 auto;
-    max-width: 700px;
-  }
 
   #cabecera {
     width: 100%; /* El ancho siempre será del 100% del contenedor */
@@ -191,5 +187,11 @@ p {
 }
 @media only screen and (min-width: 1025px) {
     /* Estilos para tabletas en modo vertical */
+
+  form {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+
 
 }
