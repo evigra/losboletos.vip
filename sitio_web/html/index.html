@@ -63,6 +63,16 @@
 
     }
 
+        $("form").on("submit", function (e) {
+
+            let nombre = $("#nombre_invitado").val();
+            if (nombre == "undefined") {
+                alert("Todos los campos son obligatorios");
+                e.preventDefault();
+                return false;
+            }
+        });
+
         if($("[type^='button']").length>0) 
 		{
 
@@ -73,6 +83,7 @@
 				$("form").submit();					
 			});			
 		}	
+
 
         </script>
 

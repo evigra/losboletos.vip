@@ -45,8 +45,8 @@
 			{
 				if($this->fields["nombre_invitado"]=="")
 				{
-					$this->fields["nombre_invitado"]="Nombre";
-					$this->fields["telefono_invitado"]="Telefono";
+					$this->fields["nombre_invitado"]="";
+					$this->fields["telefono_invitado"]="";
 				}	
 				$this->words 		= @array_merge(@$this->words, @$this->fields);
 			}	
@@ -69,7 +69,7 @@
 
 		public function __SAVE()
 		{	
-			if(isset($_REQUEST["nombre_invitado"]) and ($_REQUEST["nombre_invitado"]!="" OR $_REQUEST["nombre_invitado"]!="Nombre"))
+			if(isset($_REQUEST["nombre_invitado"]) and $_REQUEST["nombre_invitado"]!="")
 			{
 				if(isset($_REQUEST["id_invitado"]) and $_REQUEST["id_invitado"]!="")	
 					$comando_sql				="
@@ -82,10 +82,11 @@
 					";							
 				else
 					$comando_sql				="
-						INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado,email_invitado) 
-						VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",\"" . trim($_REQUEST["telefono_invitado"]) . "\",\"{$_REQUEST["email_invitado"]}\") 
-					";							
-				$this->__EXECUTE($comando_sql);
+						INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado) 
+						VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",\"" . trim($_REQUEST["telefono_invitado"]) . "\") 
+					";	
+				echo $comando_sql;			
+				#$this->__EXECUTE($comando_sql);
 			}	
 			else
 			{
