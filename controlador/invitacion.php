@@ -6,7 +6,7 @@
 	//$objeto->words["html_head_css"]			="default"; 
 	$objeto->words["html_head_title"]		.="Invitacion";
 	
-	$objeto->words["html_head_description"]		="Esta seccion es un clilaquil de designios";
+	$objeto->words["html_head_description"]		="Eres alguien especial, por eso te damos losboletos.vip";
 	$objeto->words["html_head_keywords"]		="Designia, Designia.vip, Eventos, events";
 
 	#$objeto->__PRINT_R($_REQUEST);
