@@ -6,7 +6,7 @@
 	//$objeto->words["html_head_css"]			="default"; 
 	$objeto->words["html_head_title"]		.="Invitacion";
 	
-	$objeto->words["html_head_description"]		="Eres alguien especial, por eso te damos losboletos.vip";
+	$objeto->words["html_head_description"]		="Eres tan especial, que te damos LosBoletos.VIP";
 	$objeto->words["html_head_keywords"]		="boletos, losboletos, losboletos.vip, vip, evento, fiesta, invitacion";
 
 	#$objeto->__PRINT_R($_REQUEST);

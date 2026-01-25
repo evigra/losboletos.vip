@@ -4,9 +4,9 @@
 	$objeto			=new invitado();
 
 	//$objeto->words["html_head_css"]			="default"; 
-	$objeto->words["html_head_title"]		.="Solicitud";
+	$objeto->words["html_head_title"]		.="Queremos Invitarte";
 	
-	$objeto->words["html_head_description"]		="Esta seccion es un clilaquil de designios";
+	$objeto->words["html_head_description"]		="Eres muy especial, queremos invitarte y darte LosBoletos.VIP";
 	$objeto->words["html_head_keywords"]		="Designia, Designia.vip, Eventos, events";
 
 
