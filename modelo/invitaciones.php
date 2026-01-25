@@ -41,7 +41,7 @@
 			$wa2_evento="https://wa.me/+52{$this->datas[0]["tel2_evento"]}?text=". urlencode($url_evento);
 
 			$this->words["qr_evento"]	= $this->__QR($url_evento, 800);
-			$this->words["url_evento"]	= "http://losboletos.vip/invitaciones/show/&id=". $_REQUEST["id"]."&b=";;
+			$this->words["url_evento"]	= "http://losboletos.vip/invitaciones/show/&id=". $_REQUEST["id"]."&b=";
 			$this->words["url1_evento"]	= $wa1_evento;
 			$this->words["url2_evento"]	= $wa2_evento;
 

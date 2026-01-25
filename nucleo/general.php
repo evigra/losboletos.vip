@@ -83,7 +83,15 @@
 							$comando_sql
 						</div>
 					";
-				}						
+				}
+				else
+				{
+					if(substr($comando_sql, 0, 6)=="INSERT")
+					{
+						$return	=$this->OPHP_conexion->insert_id;
+						$this->__PRINT_R($return);
+					}
+				}							
 			}	
 			else
 			{
@@ -109,8 +117,6 @@
 				$resultado->free();					
 			}
 
-			if(substr($comando_sql, 0, 6)=="INSERT")
-				$return	=$this->OPHP_conexion->insert_id;
 			
 			#
 

@@ -72,8 +72,9 @@
 		{	
 			if(isset($_REQUEST["nombre_invitado"]) and $_REQUEST["nombre_invitado"]!="")
 			{
+
 				if(isset($_REQUEST["id_invitado"]) and $_REQUEST["id_invitado"]!="")	
-					$comando_sql				="
+					$comando_sql="
 						UPDATE invitado SET 
 							nombre_invitado=\"{$_REQUEST["nombre_invitado"]}\", 
 							pais_telefono_invitado=\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",
@@ -82,12 +83,48 @@
 							id_invitado=\"{$_REQUEST["id_invitado"]}\"	
 					";							
 				else
-					$comando_sql				="
-						INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado) 
-						VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",\"" . trim($_REQUEST["telefono_invitado"]) . "\") 
-					";	
-				echo $comando_sql;			
-				#$this->__EXECUTE($comando_sql);
+					$comando_sql ="INSERT INTO invitado (id_evento,nombre_invitado,pais_telefono_invitado,telefono_invitado,numero_invitado) 
+						VALUES(\"{$_REQUEST["id"]}\",\"{$_REQUEST["nombre_invitado"]}\",\"" . trim($_REQUEST["pais_telefono_invitado"]) . "\",\"" . trim($_REQUEST["telefono_invitado"]) . "\",\"" . trim($_REQUEST["numero_invitado"]) . "\") 
+					";
+					
+				#$this->__PRINT_R($this->__EXECUTE($comando_sql));
+				$return=$this->__EXECUTE($comando_sql);
+
+				$id_invitado	=@md5($return);
+				#nucleo/qrlib/imagen_qr.php?data=
+
+				$url_text	=urlencode("http://losboletos.vip/invitacion/show/&id=" . $id_invitado);
+				$url_qr		=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
+
+				$text_wa=urlencode("{$_REQUEST["nombre_invitado"]} \n
+				Nos complace enviarte la invitación para {$_REQUEST["numero_invitado"]} personas, a un evento muy especial para nosotros. \n
+				Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
+				Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros.	\n
+				
+				Esperamos contar con tu puntual asistencia.\n 
+				Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
+				") . $url_text;
+
+				$wa="https://wa.me/". trim($_REQUEST["pais_telefono_invitado"]) . trim($data["telefono_invitado"]). "?text=$text_wa";
+
+				header("Location: $wa");
+				exit;				
+
+/*
+
+				if($data["status_gral_invitado"]=="")	
+					$text_wa=urlencode("{$data["nombre_invitado"]} \n
+Nos complace enviarte la invitación para {$data["numero_invitado"]} personas, a un evento muy especial para nosotros: Nuestra boda. \n
+Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
+Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros, en el que formalizaremos nuestra unión.	\n
+Para el mayor disfrute de todos los que estemos ahí,  este evento se programó sólo para adultos, por lo que los menores, deberán quedarse a descansar para dejar a sus papis disfrutar. \n
+Esperamos contar con tu puntual asistencia.\n 
+Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
+") . $url_text;
+
+*/
+
+
 			}	
 			else
 			{
