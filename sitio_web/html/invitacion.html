@@ -43,7 +43,7 @@ window.addEventListener("scroll", () => {
 </div>
 
 
-<div class="separador_texto animar" >
+<div class="separador_texto" >
     <div class="container titulo animar">{nombre_invitado}</div>
     <div class="container subtitulo animar">
         {descripcion_evento}
@@ -63,7 +63,7 @@ window.addEventListener("scroll", () => {
     </div>    
 </div>
 
-<div class="separador_texto animar">
+<div class="separador_texto">
     <div class="container titulo cursiva animar">{invitado1_evento}</div>
     <div class="container subtitulo animar">{tipoinvitado1_evento}</div>
     <br><br>
@@ -150,29 +150,17 @@ window.addEventListener("scroll", () => {
 
 
 const animaciones = [
+    'from-up',
+    'from-down',
     'from-left',
-    'from-right',
-    'from-top',
-    'from-bottom',
-    'from-zoom'
+    'from-right'
   ];
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-
-        const $el = $(entry.target);
-
-        // Evita re-animar si ya se animó
-        if (!$el.hasClass('visible')) {
-
-          // Animación aleatoria
-          const randomAnim =
-            animaciones[Math.floor(Math.random() * animaciones.length)];
-
-          $el.addClass(randomAnim + ' visible');
-        }
-
+        $(entry.target).addClass('visible');
+        observer.unobserve(entry.target); // 🔒 solo una vez
       }
     });
   }, {
@@ -180,9 +168,20 @@ const animaciones = [
   });
 
   $('.animar').each(function () {
+
+    // Animación random SOLO UNA VEZ
+    const randomAnim =
+      animaciones[Math.floor(Math.random() * animaciones.length)];
+
+    // Delay opcional para naturalidad
+    const delay = (Math.random() * 0.3).toFixed(2);
+
+    $(this)
+      .addClass(randomAnim)
+      .css('transition-delay', delay + 's');
+
     observer.observe(this);
   });
-
 
 
 </script>

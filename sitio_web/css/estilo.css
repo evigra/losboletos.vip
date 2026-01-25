@@ -55,31 +55,27 @@
   transition: all 0.7s ease-out;
 }
 
-/* Estados finales */
+/* Estado final */
 .animar.visible {
   opacity: 1;
   transform: translate(0, 0) scale(1);
 }
 
-/* Posiciones iniciales RANDOM */
+/* Estados iniciales */
+.from-up {
+  transform: translateY(60px);
+}
+
+.from-down {
+  transform: translateY(-60px);
+}
+
 .from-left {
   transform: translateX(-60px);
 }
 
 .from-right {
   transform: translateX(60px);
-}
-
-.from-top {
-  transform: translateY(-60px);
-}
-
-.from-bottom {
-  transform: translateY(60px);
-}
-
-.from-zoom {
-  transform: scale(0.8);
 }
 
 
