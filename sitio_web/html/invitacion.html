@@ -3,9 +3,17 @@
 </audio>
 
 <script>
-document.addEventListener("click", () => {
-  document.getElementById("miAudio").play();
-}, { once: true });
+
+
+let audioIniciado = false;
+
+window.addEventListener("scroll", () => {
+  if (!audioIniciado && window.scrollY > 300) {
+    document.getElementById("miAudio").play();
+    audioIniciado = true;
+  }
+});
+
 </script>
 
 <img src="../.././sitio_web/img/separador.png" width="100%">
