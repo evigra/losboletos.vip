@@ -46,16 +46,48 @@
     
   }
 
+
+
+
+
 .animar {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
+  transition: all 0.7s ease-out;
 }
 
+/* Estados finales */
 .animar.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0) scale(1);
 }
+
+/* Posiciones iniciales RANDOM */
+.from-left {
+  transform: translateX(-60px);
+}
+
+.from-right {
+  transform: translateX(60px);
+}
+
+.from-top {
+  transform: translateY(-60px);
+}
+
+.from-bottom {
+  transform: translateY(60px);
+}
+
+.from-zoom {
+  transform: scale(0.8);
+}
+
+
+
+
+
+
+
 
   #separador {
     position:         relative;  

@@ -15,32 +15,18 @@ window.addEventListener("scroll", () => {
 });
 
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        $(entry.target).addClass('visible');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  $('.animar').each(function () {
-    observer.observe(this);
-  });
-
-
-
 </script>
 
 <img src="../.././sitio_web/img/separador.png" width="100%">
 
-<div class="separador_texto animar">
+<div class="separador_texto">
     <div style="display: flex; justify-content: center;">    
         <img src="../.././sitio_web/img/corona.png" width="30%">
     </div>
-    <div class="container subtitulo">{tipo_evento}</div>
-    <div class="container titulo cursiva">{nombre_evento}</div>
-    <div class="container subtitulo ">{fecha_evento}</div>
-    <div class="container subtitulo2">{qr}</div>
+    <div class="container subtitulo animar">{tipo_evento}</div>
+    <div class="container titulo cursiva animar">{nombre_evento}</div>
+    <div class="container subtitulo animar">{fecha_evento}</div>
+    <div class="container subtitulo2 animar">{qr}</div>
 </div>
 
 
@@ -58,8 +44,8 @@ window.addEventListener("scroll", () => {
 
 
 <div class="separador_texto animar" >
-    <div class="container titulo">{nombre_invitado}</div>
-    <div class="container subtitulo">
+    <div class="container titulo animar">{nombre_invitado}</div>
+    <div class="container subtitulo animar">
         {descripcion_evento}
     </div>        
     {html_confirmacion_evento}
@@ -78,11 +64,11 @@ window.addEventListener("scroll", () => {
 </div>
 
 <div class="separador_texto animar">
-    <div class="container titulo cursiva">{invitado1_evento}</div>
-    <div class="container subtitulo">{tipoinvitado1_evento}</div>
+    <div class="container titulo cursiva animar">{invitado1_evento}</div>
+    <div class="container subtitulo animar">{tipoinvitado1_evento}</div>
     <br><br>
-    <div class="container titulo cursiva">{invitado2_evento}</div>
-    <div class="container subtitulo">{tipoinvitado2_evento}</div>
+    <div class="container titulo cursiva animar">{invitado2_evento}</div>
+    <div class="container subtitulo animar">{tipoinvitado2_evento}</div>
 </div>
 
 
@@ -101,9 +87,9 @@ window.addEventListener("scroll", () => {
 
 
 <div class="separador_texto">
-    <div class="container titulo">{misa_evento}</div>
-    <div class="container subtitulo">{fmisa_evento}</div>
-    <div class="container subtitulo">{dmisa_evento}</div>
+    <div class="container titulo animar">{misa_evento}</div>
+    <div class="container subtitulo animar">{fmisa_evento}</div>
+    <div class="container subtitulo animar">{dmisa_evento}</div>
 
     <div class="container">    
         {map_misa}
@@ -160,3 +146,43 @@ window.addEventListener("scroll", () => {
 
 <div class="container subtitulo">Esperamos tu puntual asistencia</div>
 
+<script>
+
+
+const animaciones = [
+    'from-left',
+    'from-right',
+    'from-top',
+    'from-bottom',
+    'from-zoom'
+  ];
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+
+        const $el = $(entry.target);
+
+        // Evita re-animar si ya se animó
+        if (!$el.hasClass('visible')) {
+
+          // Animación aleatoria
+          const randomAnim =
+            animaciones[Math.floor(Math.random() * animaciones.length)];
+
+          $el.addClass(randomAnim + ' visible');
+        }
+
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  $('.animar').each(function () {
+    observer.observe(this);
+  });
+
+
+
+</script>

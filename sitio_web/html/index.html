@@ -16,7 +16,10 @@
 
         
         <link href="https://fonts.googleapis.com/css2?family=Dancing%20Script:wght@400;700&display=swap" rel="stylesheet">
-  
+
+        <script src="../../sitio_web/js/jquery.js"></script>
+        <script src="../../sitio_web/js/jquery-ui.js"></script>
+        
     </head>
     <body>
 
@@ -28,8 +31,6 @@
             {html_body}  
         </form>
 
-        <script src="../../sitio_web/js/jquery.js"></script>
-        <script src="../../sitio_web/js/jquery-ui.js"></script>
 
 
       <script>
@@ -66,6 +67,7 @@
         $("form").on("submit", function (e) {
 
             let nombre = $("#nombre_invitado").val();
+
             if (nombre == "undefined") {
                 alert("Todos los campos son obligatorios");
                 e.preventDefault();
