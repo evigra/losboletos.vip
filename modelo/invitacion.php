@@ -18,8 +18,7 @@
 				$this->__SAVE($_REQUEST["action"]);
 			}
 
-			$date1_fecha_evento = new DateTime('2024-12-27 17:00');
-			$date1_fecha_evento = new DateTime('2024-12-23 17:00');
+			$date1_fecha_evento = new DateTime('2026-02-27 17:00');
 			$date2_fecha_servidor = new DateTime(Date('Y-m-d H:i'));
 
 
@@ -48,14 +47,10 @@
 				";	
 			}			
 			
+			#echo "$date1_fecha_evento > $date2_fecha_servidor"; 
 			if ($date1_fecha_evento > $date2_fecha_servidor) 
 			{
 				$this->words["html_confirmacion_evento"]="
-					<div class=\"container subtitulo\"><br>
-						<select name=\"numero_invitado\" class=\"subtitulo\">
-							{option_invitado}
-						</select>
-					</div>        
 					<table class=\"subtitulo\" border=\"0\" style=\"width: 100%;\">
 						<tr><td style=\"text-align: center;\" align=\"center\">
 							Favor de confirmar o cancelar <br>antes del {confirmacion_evento}
@@ -124,90 +119,77 @@
 
 
 
+			if(isset($_FILES["files"]))
+			{	
+				$files_available							=array("image/png","image/jpeg", "video/mp4");
 
-			$files_available							=array("image/png","image/jpeg", "video/mp4");
-
-			foreach($_FILES["files"] as $field => $values)
-			{		        
-				foreach($values as $row => $data) 
-				{
-					if(in_array($_FILES["files"]["type"][$row], $files_available))
+				foreach($_FILES["files"] as $field => $values)
+				{		        
+					foreach($values as $row => $data) 
 					{
-						$width 			= 0;
-						$height 		= 0;
-
-						if($field=="name")
+						if(in_array($_FILES["files"]["type"][$row], $files_available))
 						{
-							$path="files/";
-							/*
-							if(!isset($events_id)) 
+							$width 			= 0;
+							$height 		= 0;
+
+							if($field=="name")
 							{
-								$events_id			=$this->__EXECUTE($comando_sql);
-								if(isset($_REQUEST["event"]))
-									$events_id=$events_id[0]["event_id"];
-							}
-							*/
-							$newHeight 		= 0;
-							$newWidth 		= 0;
-							$orientation 	= "";
+								$path="files/";
+								/*
+								if(!isset($events_id)) 
+								{
+									$events_id			=$this->__EXECUTE($comando_sql);
+									if(isset($_REQUEST["event"]))
+										$events_id=$events_id[0]["event_id"];
+								}
+								*/
+								$newHeight 		= 0;
+								$newWidth 		= 0;
+								$orientation 	= "";
 
-							$temporal		=$_FILES["files"]["tmp_name"][$row];
-							$temporal_img	=$temporal;
+								$temporal		=$_FILES["files"]["tmp_name"][$row];
+								$temporal_img	=$temporal;
 
-							$vname			=explode(".", $_FILES["files"]["name"][$row]);
-							$extencion		=$vname[count($vname)-1];
-							$extencion_img	=$extencion;
+								$vname			=explode(".", $_FILES["files"]["name"][$row]);
+								$extencion		=$vname[count($vname)-1];
+								$extencion_img	=$extencion;
 
-							$vtype			=explode("/", $_FILES["files"]["type"][$row]);
-							$type			=$vtype[0];
+								$vtype			=explode("/", $_FILES["files"]["type"][$row]);
+								$type			=$vtype[0];
 
-							
-							$data_im			=$this->__PROCESS_IMG($temporal_img);							
-							$im					=$data_im["im"];
-							$width				=$data_im["width"];
-							$height				=$data_im["height"];
-							$orientation		=$data_im["orientation"];
-				
-							/*	
-							$comando_sql		="INSERT INTO file (event_id, user_id, extension, temp, height, width,orientation)
-							VALUES(	
-								'$events_id', 
-								'1', 
-								'" . $extencion . "',
-								'" . $temporal ."',									
-								'" . $height . "',
-								'" . $width . "',
-								'" . $orientation . "'
-							)";
-							$file_id			=$this->__EXECUTE($comando_sql);													
-							#*/
+								
+								$data_im			=$this->__PROCESS_IMG($temporal_img);							
+								$im					=$data_im["im"];
+								$width				=$data_im["width"];
+								$height				=$data_im["height"];
+								$orientation		=$data_im["orientation"];
+					
+								$comando_sql		="INSERT INTO file (invitado_id, evento_id)
+								VALUES(	
+									'{$_REQUEST["id"]}', 
+									'1'
+								)";
+								$file_id			=$this->__EXECUTE($comando_sql);													
 
-							$comando_sql		="INSERT INTO file (invitado_id, evento_id)
-							VALUES(	
-								'{$_REQUEST["id"]}', 
-								'1'
-							)";
-							$file_id			=$this->__EXECUTE($comando_sql);													
+								$archivo 			=$path . "file_" . md5($file_id);
 
-							$archivo 			=$path . "file_" . md5($file_id);
+								// redimencionada
+								$im->writeImage($archivo.".".$extencion_img );	
+								$th				=$im;
 
-							// redimencionada
-							$im->writeImage($archivo.".".$extencion_img );	
-							$th				=$im;
+								// thumb
+								$redimencion	=$this->__REDIMENSION(180, $width, $height);								
+								$height 		= $redimencion[0];	
+								$width 			= $redimencion[1];								
+								$th->resizeImage($width,$height, imagick::FILTER_LANCZOS, 0.8, true);					
 
-							// thumb
-							$redimencion	=$this->__REDIMENSION(180, $width, $height);								
-							$height 		= $redimencion[0];	
-							$width 			= $redimencion[1];								
-							$th->resizeImage($width,$height, imagick::FILTER_LANCZOS, 0.8, true);					
-
-							$th->writeImage($archivo."_th.".$extencion_img);
-							
-						}						
-					}	
-				}
-			}					
-
+								$th->writeImage($archivo."_th.".$extencion_img);
+								
+							}						
+						}	
+					}
+				}					
+			}
 
 
 

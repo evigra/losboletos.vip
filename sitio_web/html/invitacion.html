@@ -1,14 +1,12 @@
 <audio id="miAudio">
-  <source src="../.././sitio_web/mp/Beyonce - Halo.mp4" type="audio/mpeg">
+  <source src="../.././sitio_web/mp/Alex Warren - Ordinary.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-
-
 let audioIniciado = false;
 
-window.addEventListener("scroll", () => {
-  if (!audioIniciado && window.scrollY > 300) {
+$(document).one("click touchstart", function () {
+  if (!audioIniciado) {
     document.getElementById("miAudio").play();
     audioIniciado = true;
   }
@@ -26,7 +24,9 @@ window.addEventListener("scroll", () => {
     <div class="container subtitulo animar">{tipo_evento}</div>
     <div class="container titulo cursiva animar">{nombre_evento}</div>
     <div class="container subtitulo animar">{fecha_evento}</div>
+    <!--
     <div class="container subtitulo2 animar">{qr}</div>
+    -->
 </div>
 
 
@@ -47,8 +47,11 @@ window.addEventListener("scroll", () => {
     <div class="container titulo animar">{nombre_invitado}</div>
     <div class="container subtitulo animar">
         {descripcion_evento}
-    </div>        
+    </div>
+    <br><br>        
+    
     {html_confirmacion_evento}
+
 </div>
 
 <div class="separador_foto">

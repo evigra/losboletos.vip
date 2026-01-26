@@ -51,18 +51,12 @@
 			if ($date1_fecha_evento > $date2_fecha_servidor) 
 			{
 				$this->words["html_confirmacion_evento"]="
-					<div class=\"container subtitulo\"><br>
-						<select name=\"numero_invitado\" class=\"subtitulo\">
-							{option_invitado}
-						</select>
-					</div>        
-					<table class=\"subtitulo\" border=\"0\" style=\"width: 100%;\">
-						<tr><td style=\"text-align: center;\" align=\"center\">
-							Favor de confirmar o cancelar <br>antes del {confirmacion_evento}
-						</td></tr>
-					</table>
+
+					<div class=\"container animar\">
+						Favor de confirmar o cancelar <br>antes del {confirmacion_evento}
+					</div>
 					<br>
-					<div class=\"container\">    
+					<div class=\"container animar\">    
 						<font value=\"ACEPTAR\" type=\"button\">CONFIRMADA</font>    
 						<font value=\"CANCELAR\" type=\"button\">CANCELADA</font>
 					</div>
