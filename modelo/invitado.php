@@ -100,9 +100,8 @@ $text_wa=urlencode("{$_REQUEST["nombre_invitado"]} \n
 Nos complace enviarte la invitación para {$_REQUEST["numero_invitado"]} personas, a un evento muy especial para nosotros. \n
 Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
 Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros.	\n
-
 Esperamos contar con tu puntual asistencia.\n 
-Confirmanos antes del {$this->datas[0]["confirmacion_evento"]} por medio del siguiente link:\n
+Confirmanos por medio del siguiente link:\n
 ") . $url_text;
 
 				$wa="https://wa.me/". trim($_REQUEST["pais_telefono_invitado"]) . trim($_REQUEST["telefono_invitado"]). "?text=$text_wa";

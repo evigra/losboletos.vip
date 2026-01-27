@@ -41,21 +41,31 @@
 
 
 				$this->words["md5_id_invitado"]=md5($this->fields["id_invitado"]);
-				$this->words["qr"] = "$imagen_qr <br> INVITACION CONFIRMADA <br>" . md5($this->fields["id_invitado"]);	
-				$this->words["qr"] = "$imagen_qr
+				
+				
+				#$this->words["qr"] = "$imagen_qr <br> ";	
+				$this->words["qr"] .= "INVITACION CONFIRMADA <br>" . md5($this->fields["id_invitado"]);	
+				$this->words["qr"] .= "
 				<div class=\"container subtitulo\">
 				{$this->fields["numero_invitado"]} Personas
 				</div>        
-				";	
+				";				
+			}			
+			if($this->fields["status_gral_invitado"]=="CANCELAR")			
+			{
+				$this->words["qr"] .= "INVITACION CANCELADA";
 			}			
 			
 			#echo "$date1_fecha_evento > $date2_fecha_servidor"; 
 			if ($date1_fecha_evento > $date2_fecha_servidor) 
 			{
+
+
+
 				$this->words["html_confirmacion_evento"]="
 					<table class=\"subtitulo\" border=\"0\" style=\"width: 100%;\">
 						<tr><td style=\"text-align: center;\" align=\"center\">
-							Favor de confirmar o cancelar <br>antes del {confirmacion_evento}
+							Favor de confirmar<br>antes del {confirmacion_evento}
 						</td></tr>
 					</table>
 					<br>

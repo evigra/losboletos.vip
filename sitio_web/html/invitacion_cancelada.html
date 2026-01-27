@@ -1,286 +1,136 @@
-<div style="position:relative; top:-110px;">
-    <img src="../.././sitio_web/img/fondo1.jpg" width="100%">
-</div>
 
-<div class="separador" style="z-index:100; height: 100px;">
-    <div style="position:absolute; top: -190px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
+<img src="../.././sitio_web/img/separador.png" width="100%">
+
+<div class="separador_texto separador_animar">
+    <div style="display: flex; justify-content: center;">    
+        <img src="../.././sitio_web/img/corona.png" width="30%">
     </div>
-</div>
-<!--
-<div class="separador" style="z-index: 100; position:absolute; top: 380px;">    
--->
-
-
-<div class="separador sombra"  style="z-index:20; background-color: white;">    
-    <div class="container subtitulo">Nuestra Boda</div>
-    <div class="container titulo cursiva">{nombre_evento}</div>
-    <div class="container subtitulo ">Viernes 27 DIC 2024 <br>17:30 horas</div>
-</div>
-
-
-
- <div class="container subtitulo2">{qr}</div>
-
-
-
-<div id="separador" style="z-index:30; height: 280px;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
-</div>
-
-
-
-
-
-<div class="separador sombra" style=" height: 1px;">
-    <div style="position:absolute; top:-70px; z-index:20;">
-        <img src="../.././sitio_web/img/fondo2.jpg" width="100%">
-    </div>
-</div>
-
-<div id="separador" class="sombra" style="z-index:20; height: 690px;">
-        <div class="container subtitulo color2"><b>Padrinos</b></div>
-        <div class="container titulo color2 cursiva">Evangelina Granados Rodriguez</div>
-        <div class="container titulo color2 cursiva">Jorge Garcia Novela</div>        
-
-        <br><br><br>
-        <div class="container subtitulo color2"><b>Testigos</b></div>
-        <div class="container titulo color2 cursiva">Angelica Aguilar Arias</div>        
-        <div class="container titulo color2 cursiva">Eduardo Vizcaino Granados</div>
-</div>
-
-<div class="separador" style="z-index:100; height: 80px;">
-    <div style="position:absolute; top: -220px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>
-</div>
-
-
-<div class="container titulo">{nombre_invitado}</div>
-    <div class="container subtitulo">
-        Te agradecemos que nos hayas informado <br> que no podrán acompañarnos por esta ocasión. <br><br>
-        
-        Estamos seguros que tendremos muchas más oportunidades y eventos que festejar!<br><br>        
-
-        <select name="numero_invitado" class="subtitulo">
-            {option_invitado}
-        </select>
-
-
-    </div>        
-</div>        
-
-<br>
-
-<div class="container">    
-    <font value="ACEPTAR" type="button">CONFIRMADA</font>
+    <div class="container subtitulo animar">{tipo_evento}</div>
+    <div class="container titulo cursiva animar">{nombre_evento}</div>
+    <div class="container subtitulo animar">{fecha_evento}</div>
+    <br><br>
+    <audio id="miAudio" controls autoplay muted loop preload="auto" style="width: 100%;">
+        <source src="../.././sitio_web/mp/Alex Warren - Ordinary.mp3" type="audio/mpeg">
+    </audio>    
+    <div class="container subtitulo2 animar">{qr}</div>
     
-    <font value="CANCELAR" type="button">CANCELADA</font>
 </div>
 
 
-<div id="separador" style="z-index:30;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
-</div>
-
-<div class="separador sombra" style=" height: 100x;">
-    <div style="position:absolute; top:-60px; z-index:20;">
-        <img src="../.././sitio_web/img/fondo8.jpg" width="100%">
-    </div>
-</div>
-
-<div id="separador" class="sombra" style="z-index:20; height: 680px;">
-</div>
-<div class="separador" style="z-index:100; height: 120px;">
-    <div style="position:absolute; top: -190px;">
+<div class="separador_foto separador_animar">
+    <div style="position:absolute;">
+        <img src="../.././sitio_web/img/separador2.png" width="100%">
+    </div>    
+    <div style="padding-top: 160px;">
+        <img src="../.././sitio_web/img/fondo1.jpg" width="100%">
+    </div>    
+    <div style="position:absolute; bottom:-160px;">
         <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>    
+</div>
+
+
+<div class="separador_texto separador_animar" >
+    <div class="container titulo animar">{nombre_invitado}</div>
+    <div class="container subtitulo animar">
+        Estamos seguros que tendremos muchas más oportunidades y eventos que festejar!
     </div>
+    <br><br>        
+    
+    {html_confirmacion_evento}
+
 </div>
 
-
-<div class="container subtitulo">Cuenta regresiva</div>
-<br>
-
-<div class="container titulo" id="timer"></div>
-
-
-
-
-<div id="separador" style="z-index:30;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
+<div class="separador_foto separador_animar">
+    <div style="position:absolute;">
+        <img src="../.././sitio_web/img/separador2.png" width="100%">
+    </div>    
+    <div style="padding-top: 160px;">
+        <img src="../.././sitio_web/img/fondo2.jpg" width="100%">
+    </div>    
+    <div style="position:absolute; bottom:-160px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>    
 </div>
 
-<div id="separador" class="sombra" style="position: relative; height: 1px;">
-    <div style="position:absolute; top:-60px; left: 50%; z-index:20;">
+    <div class="container titulo animar" id="timer">
+        <div class="container titulo animar" id="timerd"></div>    
+        <div class="container titulo animar" id="timerh"></div>    
+        <div class="container titulo animar" id="timerm"></div>
+        <div class="container titulo animar" id="timers"></div>        
+
+    </div>
+
+
+
+<div class="separador_foto">
+    <div style="position:absolute;">
+        <img src="../.././sitio_web/img/separador2.png" width="100%">
+    </div>    
+    <div style="padding-top: 160px;">
         <img src="../.././sitio_web/img/fondo3.jpg" width="100%">
-    </div>
-    <div style="position:absolute; top:-60px; right: 50%; z-index:20;">
-        <img src="../.././sitio_web/img/fondo4.jpg" width="100%">
-    </div>
-</div>
-<div id="separador" class="sombra" style="z-index:20;  height: 350px; ">
-    <!--
-
-    <div class="container subtitulo color2"><b>Ceremonia</b></div>
-    <div class="container titulo color2">{misa_evento}</div>
-    <div class="container">{fmisa_evento}</div>
-    -->
-</div>         
-
-<div class="separador" style="z-index:100; height: 150px;">
-    <div style="position:absolute; top: -150px;">
+    </div>    
+    <div style="position:absolute; bottom:-160px;">
         <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>
-</div>
-
-<div class="container titulo"><b>Orden del Dia</b></div>
-<div class="container" style="text-align: center;">
-
-<table class="subtitulo" border="0" style="margin: auto; width: 570px; ">
-    <tr><td width="120">17:30</td><td width="450">Recepcion de invitados</td></tr>
-    <tr><td>17:45</td><td>Boda<br>
-        Cocteles y Fotos. <br>    
-        Encendido de velas de buenos deseos</td></tr>
-    <tr><td>18:30</td><td>Asignacion de mesas</td></tr>
-    <tr><td>18:45</td><td>Entrada de Novios y Vals</td></tr>
-    <tr><td>19:00</td><td>Apertura de baile</td></tr>
-    <tr><td>19:45</td><td>Cena</td></tr>
-    <tr><td>20:45</td><td>Brindis <br>
-        Lanzamiento de Ramo y Boutonniere</td></tr>
-    <tr><td>21:45</td><td>Corte de pastel, postres</td></tr>
-    <tr><td>23:00</td><td>Chilaquiles, pan y cafe</td></tr>
-</table>
-<br>
-<div class="container subtitulo2">Para un mejor disfrute del evento, <br>éste se programó sólo para adultos.</div>
-
+    </div>    
 </div>
 
 
-<div id="separador" style="z-index:30;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
-</div>
+<script>
 
-<div class="separador sombra" style=" height: 100x;">
-    <div style="position:absolute; top:-60px; z-index:20;">
-        <img src="../.././sitio_web/img/fondo5.jpg" width="100%">
-    </div>
-</div>
+const animaciones = [
+    'from-up',
+    'from-down',
+    'from-left',
+    'from-right'
+  ];
 
-<div id="separador" class="sombra" style="z-index:20; height: 680px;">
-</div>
-<div class="separador" style="z-index:100; height: 120px;">
-    <div style="position:absolute; top: -190px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>
-</div>
+  const observer1 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        $(entry.target).addClass('visible');
+        observer1.unobserve(entry.target); // 🔒 solo una vez
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
 
-<div id="separador" class="sombra" style="z-index:20; height: 300px;">
-    <div class="container subtitulo">Si es tu deseo hacernos un obsequio, <br>lo podrás hacer en las siguientes mesas de regalos:</div>
-    <div class="container subtitulo">La Marina 2075</div>
-    <div class="container subtitulo">Liverpol 51423238</div>
-</div>
+  $('.animar').each(function () {
 
-<div id="separador" style="z-index:30;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
-</div>
+    // Animación random SOLO UNA VEZ
+    const randomAnim =
+      animaciones[Math.floor(Math.random() * animaciones.length)];
 
-<div class="separador sombra" style=" height: 100x;">
-    <div style="position:absolute; top:-60px; z-index:20;">
-        <img src="../.././sitio_web/img/fondo6.jpg" width="100%">
-    </div>
-</div>
+    // Delay opcional para naturalidad
+    const delay = (Math.random() * 0.3).toFixed(2);
 
-<div id="separador" class="sombra" style="z-index:20; height: 740px;">
-</div>
-<div class="separador" style="z-index:100; height: 120px;">
-    <div style="position:absolute; top: -210px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>
-</div>
+    $(this)
+      .addClass(randomAnim)
+      .css('transition-delay', delay + 's');
+
+    observer1.observe(this);
+  });
 
 
 
-<div class="container titulo"><b>Codigo de Vestimenta: FORMAL</b></div>
 
-<div class="container" style="text-align: center;">
-    <table  border="0" style="margin: auto; width: 800px; ">
-        <tr>
-            <td width="350"><img src="../.././sitio_web/img/codigo.jpg"></td>
-            <td>
-                <div class="container subtitulo" style="text-align: left;">
-                HOMBRES <br>
-                Traje
-                
-                <br><br>
-                MUJERES <br>
-                Vestido largo,<br>
-                El blanco es para la novia!<br>
-                Se sugiere evitar colores beige, nude y rojo. <br>
-                Llevar algo abrigador y tacones cómodos.
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+const audio = document.getElementById("miAudio");
+  audio.volume = 0.4;
+  let started = false;
 
-<div id="separador" style="z-index:30;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
-</div>
+  function startMusic() {
+    if (!started) {
 
-<div class="separador sombra" style=" height: 100x;">
-    <div style="position:absolute; top:-60px; z-index:20;">
-        <img src="../.././sitio_web/img/fondo7.jpg" width="100%">
-    </div>
-</div>
 
-<div id="separador" class="sombra" style="z-index:20; height: 1400px;">
-</div>
-<div class="separador" style="z-index:100; height: 120px;">
-    <div style="position:absolute; top: -190px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>
-</div>
+        audio.muted = false;
+
+      $(document).off("click scroll touchstart mousemove keydown", startMusic);
+    }
+  }
+
+  $(document).on("click scroll touchstart mousemove keydown", startMusic);
 
 
 
-<div class="container titulo">{salon_evento}</div>
-<div class="container subtitulo">Sera el Lugar</div>
-<div class="container subtitulo">No niños</div>
-<!--
-<div class="container">{fsalon_evento}</div>
--->
-<div class="container">    
-    {map_salon}
-</div>
-
-<div id="separador" style="z-index:30;">
-    <img src="../.././sitio_web/img/separador2.png" width="100%">
-</div>
-
-<div class="separador sombra" style=" height: 100x;">
-    <div style="position:absolute; top:-60px; z-index:20;">
-        <img src="../.././sitio_web/img/fondo9.jpg" width="100%">
-    </div>
-</div>
-
-<div id="separador" class="sombra" style="z-index:20; height: 710px;">
-</div>
-
-
-<div class="separador" style="z-index:100; height: 120px;">
-
-
-    <div style="position:absolute; top: -190px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>
-</div>
-
-    <div class="container subtitulo">
-        
-        Estamos seguros que tendremos muchas más oportunidades y eventos que festejar!<br><br>        
-
-
-    </div>        
-
-
-
+</script>
