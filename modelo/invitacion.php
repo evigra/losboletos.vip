@@ -39,6 +39,8 @@
 			{
 				$imagen_qr = $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
 
+
+				$this->words["md5_id_invitado"]=md5($this->fields["id_invitado"]);
 				$this->words["qr"] = "$imagen_qr <br> INVITACION CONFIRMADA <br>" . md5($this->fields["id_invitado"]);	
 				$this->words["qr"] = "$imagen_qr
 				<div class=\"container subtitulo\">

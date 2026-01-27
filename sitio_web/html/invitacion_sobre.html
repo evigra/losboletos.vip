@@ -1,0 +1,61 @@
+<a href="../show/&id={md5_id_invitado}">
+<img src="../.././sitio_web/img/separador.png" width="100%">
+
+<div class="separador_texto separador_animar">
+    <div style="display: flex; justify-content: center;">    
+        <img src="../.././sitio_web/img/corona.png" width="30%">
+    </div>
+    <div class="container subtitulo animar">{tipo_evento}</div>
+    <div class="container titulo cursiva animar">{nombre_evento}</div>
+    <div class="container subtitulo animar">{fecha_evento}</div>
+</div>
+<img src="../.././sitio_web/img/separador2.png" width="100%">
+</a>
+<script>
+const animaciones = [
+    'from-up',
+    'from-down',
+    'from-left',
+    'from-right'
+  ];
+
+  const observer1 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        $(entry.target).addClass('visible');
+        observer1.unobserve(entry.target); // 🔒 solo una vez
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  $('.animar').each(function () {
+
+    // Animación random SOLO UNA VEZ
+    const randomAnim =
+      animaciones[Math.floor(Math.random() * animaciones.length)];
+
+    // Delay opcional para naturalidad
+    const delay = (Math.random() * 0.3).toFixed(2);
+
+    $(this)
+      .addClass(randomAnim)
+      .css('transition-delay', delay + 's');
+
+    observer1.observe(this);
+
+
+});
+
+
+
+const audio = document.getElementById("miAudio");
+  audio.muted = false;
+  audio.src = "../.././sitio_web/mp/Alex Warren - Ordinary.mp3";
+  document.addEventListener("click", () => {
+    audio.play();
+  }, { once: true });
+
+
+</script>

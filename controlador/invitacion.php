@@ -26,6 +26,8 @@
 		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion_ingreso", $objeto->words);
 	elseif(isset($objeto->fields["status_gral_invitado"]) and $objeto->fields["status_gral_invitado"]=="CANCELAR")
 		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion_cancelada", $objeto->words);
+	elseif($_REQUEST["method"]=="sobre")
+		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion_sobre", $objeto->words);
 	else
 		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("invitacion", $objeto->words);
 
