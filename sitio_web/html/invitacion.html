@@ -1,36 +1,24 @@
-<audio id="miAudio">
-  <source src="../.././sitio_web/mp/Alex Warren - Ordinary.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-let audioIniciado = false;
-
-$(document).one("click touchstart", function () {
-  if (!audioIniciado) {
-    document.getElementById("miAudio").play();
-    audioIniciado = true;
-  }
-});
-
-
-</script>
 
 <img src="../.././sitio_web/img/separador.png" width="100%">
 
-<div class="separador_texto">
+<div class="separador_texto separador_animar">
     <div style="display: flex; justify-content: center;">    
         <img src="../.././sitio_web/img/corona.png" width="30%">
     </div>
     <div class="container subtitulo animar">{tipo_evento}</div>
     <div class="container titulo cursiva animar">{nombre_evento}</div>
     <div class="container subtitulo animar">{fecha_evento}</div>
+    <br><br>
+    <audio id="miAudio" controls style="width: 100%;">
+        <source src="../.././sitio_web/mp/Alex Warren - Ordinary.mp3" type="audio/mpeg">
+    </audio>    
     <!--
     <div class="container subtitulo2 animar">{qr}</div>
     -->
 </div>
 
 
-<div class="separador_foto">
+<div class="separador_foto separador_animar">
     <div style="position:absolute;">
         <img src="../.././sitio_web/img/separador2.png" width="100%">
     </div>    
@@ -43,7 +31,7 @@ $(document).one("click touchstart", function () {
 </div>
 
 
-<div class="separador_texto" >
+<div class="separador_texto separador_animar" >
     <div class="container titulo animar">{nombre_invitado}</div>
     <div class="container subtitulo animar">
         {descripcion_evento}
@@ -54,7 +42,7 @@ $(document).one("click touchstart", function () {
 
 </div>
 
-<div class="separador_foto">
+<div class="separador_foto separador_animar">
     <div style="position:absolute;">
         <img src="../.././sitio_web/img/separador2.png" width="100%">
     </div>    
@@ -66,7 +54,7 @@ $(document).one("click touchstart", function () {
     </div>    
 </div>
 
-<div class="separador_texto">
+<div class="separador_texto separador_animar">
     <div class="container titulo cursiva animar">{invitado1_evento}</div>
     <div class="container subtitulo animar">{tipoinvitado1_evento}</div>
     <br><br>
@@ -157,7 +145,6 @@ $(document).one("click touchstart", function () {
 
 <script>
 
-
 const animaciones = [
     'from-up',
     'from-down',
@@ -165,11 +152,11 @@ const animaciones = [
     'from-right'
   ];
 
-  const observer = new IntersectionObserver(entries => {
+  const observer1 = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         $(entry.target).addClass('visible');
-        observer.unobserve(entry.target); // 🔒 solo una vez
+        observer1.unobserve(entry.target); // 🔒 solo una vez
       }
     });
   }, {
@@ -189,7 +176,7 @@ const animaciones = [
       .addClass(randomAnim)
       .css('transition-delay', delay + 's');
 
-    observer.observe(this);
+    observer1.observe(this);
   });
 
 
