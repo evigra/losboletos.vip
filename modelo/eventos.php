@@ -68,7 +68,8 @@
 				";
 			}
 
-			$this->words 		= array_merge($this->words, $this->fields);
+			if(isset($this->fields))
+				$this->words 		= array_merge($this->words, $this->fields);
 
 			$this->words["datos"]=$datas;
 
