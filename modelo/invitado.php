@@ -41,6 +41,7 @@
 
 			
 
+
 			if(is_array($this->fields))
 			{
 				if($this->fields["nombre_invitado"]=="")
@@ -49,9 +50,24 @@
 					$this->fields["telefono_invitado"]="";
 					$this->fields["numero_invitado"]=$_REQUEST["b"];
 				}	
+
+				$this->words["texto_numero_invitado"]="";
+				if($this->fields["numero_invitado"]!=-1)
+				{				
+					$this->words["texto_numero_invitado"]="
+						<br><br><br>
+						<div class=\"container titulo cursiva\">Esta invitacion es para</div>
+						<div class=\"container titulo\">{numero_invitado}</div>
+					";
+
+				}	
+
+
 				$this->words 		= @array_merge(@$this->words, @$this->fields);
 			}	
-				
+			
+
+
 
 			if(isset($_REQUEST["id_invitado"]))
 			{
@@ -96,8 +112,12 @@
 				$url_text	=urlencode("http://losboletos.vip/invitacion/show/&id=" . $id_invitado);
 				$url_qr		=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
+				$texto_wa_numero_invitado="";
+				if($_REQUEST["numero_invitado"]!=-1)	
+					$texto_wa_numero_invitado=" para {$_REQUEST["numero_invitado"]} personas";
+
 $text_wa=urlencode("{$_REQUEST["nombre_invitado"]} \n
-Nos complace enviarte la invitación para {$_REQUEST["numero_invitado"]} personas, a un evento muy especial para nosotros. \n
+Nos complace enviarte la invitación$texto_wa_numero_invitado, a un evento muy especial para nosotros. \n
 Deseamos disfrutar éste día con personas con quienes hemos compartido valiosos momentos de nuestra vida.  \n
 Personas positivas que nos acompañen con alegría y buena vibra en ese momento tan especial para nosotros.	\n
 Esperamos contar con tu puntual asistencia.\n 

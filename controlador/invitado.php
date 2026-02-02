@@ -4,7 +4,7 @@
 	$objeto			=new invitado();
 
 	//$objeto->words["html_head_css"]			="default"; 
-	$objeto->words["html_head_title"]		.="Queremos Invitarte";
+	$objeto->words["html_head_title"]			.="Queremos Invitarte";
 	
 	$objeto->words["html_head_description"]		="Eres muy especial, queremos invitarte y darte LosBoletos.VIP";
 	$objeto->words["html_head_keywords"]		="Designia, Designia.vip, Eventos, events";
@@ -20,6 +20,8 @@
 
 
 	}
+
+	
 
 	if(isset($_REQUEST["action"]))
 	{

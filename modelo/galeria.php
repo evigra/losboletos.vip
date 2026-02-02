@@ -1,5 +1,5 @@
 <?php
-	class invitacion extends general
+	class galeria extends general
 	{   
 		##############################################################################	
 		##  Propiedades	
@@ -13,13 +13,8 @@
 		{	
 			if(isset($_REQUEST["action"]))
 			{
-				#$this->__PRINT_R($_REQUEST);
-				#$this->__PRINT_R($_FILES);
 				$this->__SAVE($_REQUEST["action"]);
 			}
-
-			$date1_fecha_evento = new DateTime('2026-02-27 17:00');
-			$date2_fecha_servidor = new DateTime(Date('Y-m-d H:i'));
 
 
 			$this->__INI();
@@ -35,74 +30,18 @@
 			";				
 			$this->fields				= $this->__EXECUTE($comando_sql)[0];
 
-			if($this->fields["status_gral_invitado"]=="ACEPTAR")			
-			{
-				$imagen_qr = $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
-
-
-				$this->words["md5_id_invitado"]=md5($this->fields["id_invitado"]);
-				
-				
-				#$this->words["qr"] = "$imagen_qr <br> ";	
-e				$this->words["qr"] .= "INVITACION CONFIRMADA <br>";	
-				if($this->fields["numero_invitado"]!=-1)
-					$this->words["qr"] .= "
-						<div class=\"container subtitulo\">
-						{$this->fields["numero_invitado"]} Personas
-						</div>        
-					";				
-			}			
-			if($this->fields["status_gral_invitado"]=="CANCELAR")			
-			{
-				$this->words["qr"] .= "INVITACION CANCELADA";
-			}			
+			$imagen_qr = $this->__QR("http://losboletos.vip/galeria/show/&id=" . $_REQUEST["id"], 400);
+			$this->words["md5_id_invitado"]=md5($this->fields["id_invitado"]);
+			$this->words["qr"] = "$imagen_qr <br> ";	
 			
-			#echo "$date1_fecha_evento > $date2_fecha_servidor"; 
-			if ($date1_fecha_evento > $date2_fecha_servidor) 
-			{
+			$this->words["files"]="
+				<div class=\"container\">   <br> 
+					Compartenos tu fotos !! <br>
+					<input type=\"file\" name=\"files[]\" multiple>
+					<font value=\"CARGAR\" type=\"button\">Subir Fotos</font>    
+				</div>
+			";
 
-
-
-				$this->words["html_confirmacion_evento"]="
-					<table class=\"subtitulo\" border=\"0\" style=\"width: 100%;\">
-						<tr><td style=\"text-align: center;\" align=\"center\">
-							Favor de confirmar<br>antes del {confirmacion_evento}
-						</td></tr>
-					</table>
-					<br>
-					<div class=\"container\">    
-						<font value=\"ACEPTAR\" type=\"button\">CONFIRMADA</font>    
-						<font value=\"CANCELAR\" type=\"button\">CANCELADA</font>
-					</div>
-				";
-			}
-			else
-			{
-				
-				$this->words["files"]="
-					<div class=\"container\">   <br> 
-						Compartenos tu fotos !! <br>
-						<input type=\"file\" name=\"files[]\" multiple>
-						<font value=\"CARGAR\" type=\"button\">Subir Fotos</font>    
-					</div>
-				";
-				
-			} 
-
-			if($this->fields["lsalon_evento"]!="")			
-				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
-
-			if($this->fields["lmisa_evento"]!="")			
-				$this->words["map_misa"]	= $this->__MAP($this->fields["lmisa_evento"]);
-
-			$this->words["option_invitado"]="";
-			$checked="";
-			for($a=1;$a<=$this->fields["numero_invitado"]; $a++)
-			{
-				if($a==$this->fields["numero_invitado"])	$checked="checked";
-				$this->words["option_invitado"] ="<option value=\"$a\" $checked > $a Personas</option>" . $this->words["option_invitado"];
-
-			}	
 
 			$this->words 		= array_merge($this->words, $this->fields);
 

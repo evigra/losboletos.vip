@@ -1,0 +1,89 @@
+
+<img src="../.././sitio_web/img/separador.png" width="100%">
+
+<div class="separador_texto separador_animar">
+    <div style="display: flex; justify-content: center;">    
+        <img src="../.././sitio_web/img/corona.png" width="30%">
+    </div>
+    <div class="container subtitulo animar">{tipo_evento}</div>
+    <div class="container titulo cursiva animar">{nombre_evento}</div>
+    <br><br>
+    
+    <div class="container subtitulo2 animar">{qr}</div>
+    <div class="container subtitulo2">{files}</div>
+    
+</div>
+
+
+<div class="separador_foto">
+    <div style="position:absolute;">
+        <img src="../.././sitio_web/img/separador2.png" width="100%">
+    </div>    
+    <div style="padding-top: 160px;">
+        <img src="../.././sitio_web/img/fondo4.jpg" width="100%">
+    </div>    
+    <div style="position:absolute; bottom:-160px;">
+        <img src="../.././sitio_web/img/separador.png" width="100%">
+    </div>    
+</div>
+
+
+
+<script>
+
+const animaciones = [
+    'from-up',
+    'from-down',
+    'from-left',
+    'from-right'
+  ];
+
+  const observer1 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        $(entry.target).addClass('visible');
+        observer1.unobserve(entry.target); // 🔒 solo una vez
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  $('.animar').each(function () {
+
+    // Animación random SOLO UNA VEZ
+    const randomAnim =
+      animaciones[Math.floor(Math.random() * animaciones.length)];
+
+    // Delay opcional para naturalidad
+    const delay = (Math.random() * 0.3).toFixed(2);
+
+    $(this)
+      .addClass(randomAnim)
+      .css('transition-delay', delay + 's');
+
+    observer1.observe(this);
+  });
+
+
+
+
+const audio = document.getElementById("miAudio");
+  audio.volume = 0.4;
+  let started = false;
+
+  function startMusic() {
+    if (!started) {
+
+
+        audio.muted = false;
+
+      $(document).off("click scroll touchstart mousemove keydown", startMusic);
+    }
+  }
+
+  $(document).on("click scroll touchstart mousemove keydown", startMusic);
+
+
+
+</script>
