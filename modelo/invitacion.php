@@ -46,7 +46,7 @@
 				#$this->words["qr"] = "$imagen_qr <br> ";	
 				$this->words["qr"] .= "INVITACION CONFIRMADA <br>";	
 
-				if($this->fields["numero_invitado"]!=-1)
+				if($this->fields["numero_invitado"]!="Libre")
 
 					$this->words["qr"] .= "
 						<div class=\"container subtitulo\">
@@ -98,13 +98,6 @@
 				$this->words["map_misa"]	= $this->__MAP($this->fields["lmisa_evento"]);
 
 			$this->words["option_invitado"]="";
-			$checked="";
-			for($a=1;$a<=$this->fields["numero_invitado"]; $a++)
-			{
-				if($a==$this->fields["numero_invitado"])	$checked="checked";
-				$this->words["option_invitado"] ="<option value=\"$a\" $checked > $a Personas</option>" . $this->words["option_invitado"];
-
-			}	
 
 			$this->words 		= array_merge($this->words, $this->fields);
 

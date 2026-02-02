@@ -50,7 +50,7 @@
   .separador_texto {
     position:         relative; 
     width:            100%; 
-    
+    overflow-x:       hidden;
   }
 
 
@@ -91,31 +91,31 @@
 
 
 
-
-  #separador {
+/*
+  #separador  {
     position:         relative;  
-	  width:            100%; /* El ancho siempre será del 100% del contenedor */
-    height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */
+	  width:            100%; 
+    height:           100%; 
   }
 
   #separador2 {
     position:         relative;
-	  width:            100%; /* El ancho siempre será del 100% del contenedor */
-    height:           100%; /* La altura ocupará el 100% de la pantalla del dispositivo */  
+	  width:            100%; 
+    height:           100%; 
   }
-
+*/
 
 
 .container {
 	  display:          block;
-	  justify-content:  center; /* Centra horizontalmente */
-	  align-items:      center;     /* Centra verticalmente */
+	  justify-content:  center; 
+	  align-items:      center; 
     align-content:    center;
-	  text-align:       center;      /* Alinea el texto en el centro (si el texto ocupa varias líneas) */
+	  text-align:       center; 
     font-size:				30px; 
   }
 
-.cursiva {
+  .cursiva {
   font-family:        'Dancing Script', 'Roboto', sans-serif;
 	font-size:			    60px; 
   font-weight:        bolder;
@@ -236,6 +236,7 @@ p {
   form {
     margin: 0 auto;
     max-width: 700px;
+    width: 700px;
   }
 
 

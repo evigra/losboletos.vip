@@ -1,7 +1,7 @@
 
 <img src="../.././sitio_web/img/separador.png" width="100%">
 
-<div class="separador_texto separador_animar">
+<div class="separador_texto">
     <div style="display: flex; justify-content: center;">    
         <img src="../.././sitio_web/img/corona.png" width="30%">
     </div>
@@ -18,7 +18,7 @@
 </div>
 
 
-<div class="separador_foto separador_animar">
+<div class="separador_foto">
     <div style="position:absolute;">
         <img src="../.././sitio_web/img/separador2.png" width="100%">
     </div>    
@@ -31,7 +31,7 @@
 </div>
 
 
-<div class="separador_texto separador_animar" >
+<div class="separador_texto" >
     <div class="container titulo animar">{nombre_invitado}</div>
     <div class="container subtitulo animar">
         {descripcion_evento}
@@ -42,7 +42,7 @@
 
 </div>
 
-<div class="separador_foto separador_animar">
+<div class="separador_foto">
     <div style="position:absolute;">
         <img src="../.././sitio_web/img/separador2.png" width="100%">
     </div>    
@@ -54,7 +54,7 @@
     </div>    
 </div>
 
-<div class="separador_texto separador_animar">
+<div class="separador_texto">
     <div class="container titulo cursiva animar">{invitado1_evento}</div>
     <div class="container subtitulo animar">{tipoinvitado1_evento}</div>
     <br><br>
@@ -116,9 +116,9 @@
 
 
 <div class="separador_texto">
-    <div class="container titulo">{salon_evento}</div>
-    <div class="container subtitulo">{fsalon_evento}</div>
-    <div class="container subtitulo">{tsalon_evento}</div>
+    <div class="container titulo animar">{salon_evento}</div>
+    <div class="container subtitulo animar">{fsalon_evento}</div>
+    <div class="container subtitulo animar">{tsalon_evento}</div>
 
     <div class="container">    
         {map_salon}
@@ -146,10 +146,10 @@
 <script>
 
 const animaciones = [
-    'from-up',
-    'from-down',
     'from-left',
-    'from-right'
+    'from-right',
+    'from-up',
+    'from-down'
   ];
 
   const observer1 = new IntersectionObserver(entries => {

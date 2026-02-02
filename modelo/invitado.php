@@ -52,7 +52,7 @@
 				}	
 
 				$this->words["texto_numero_invitado"]="";
-				if($this->fields["numero_invitado"]!=-1)
+				if($this->fields["numero_invitado"]!="Libre")
 				{				
 					$this->words["texto_numero_invitado"]="
 						<br><br><br>
@@ -113,7 +113,7 @@
 				$url_qr		=urlencode("http://losboletos.vip/nucleo/qrlib/imagen_qr.php?data=$url_text");
 
 				$texto_wa_numero_invitado="";
-				if($_REQUEST["numero_invitado"]!=-1)	
+				if($_REQUEST["numero_invitado"]!="Libre")	
 					$texto_wa_numero_invitado=" para {$_REQUEST["numero_invitado"]} personas";
 
 $text_wa=urlencode("{$_REQUEST["nombre_invitado"]} \n
