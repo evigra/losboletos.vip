@@ -23,6 +23,13 @@
 	}
 
 	$objeto->words["html_center"]			=$objeto->__VIEW_BASE("eventos", $objeto->words);
+	
+
+
+	if(isset($_REQUEST["id"]))
+		$objeto->words["html_center"]			=$objeto->__VIEW_BASE("evento", $objeto->words);
+	
+	
 	$objeto->words["html_right"]			="";
 
 	$objeto->words["html_menu"]				=$objeto->__VIEW_BASE("menu", $objeto->words);

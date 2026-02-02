@@ -16,23 +16,36 @@
 				$this->__SAVE($_REQUEST["action"]);
 			}
 
+
+			$aux_comando="";
+			if(isset($_REQUEST["id"]))
+			{
+				$aux_comando=" WHERE e.id_evento='{$_REQUEST["id"]}'";
+			}
+
+
 			$comando_sql				="
 				SELECT * 
 				FROM 
-					evento e 					
-			";				
+					evento e 	
+				$aux_comando	
+			";			
 			$this->datas				= $this->__EXECUTE($comando_sql);
 
 
 			
-
-			#$this->__PRINT_R($this->datas);
 
 			$datas="";
 
 			
 			foreach($this->datas as $data)
 			{	
+
+				if(isset($_REQUEST["id"]))
+				{
+					$this->fields=$data;
+
+				}
 				$url_evento="http://losboletos.vip/invitaciones/show/&id=".md5($data["id_evento"]);
 				$wa1_evento="https://wa.me/+52{$data["tel1_evento"]}?text=". urlencode($url_evento);
 				$wa2_evento="https://wa.me/+52{$data["tel2_evento"]}?text=". urlencode($url_evento);
@@ -54,7 +67,9 @@
 					</tr>
 				";
 			}
-			
+
+			$this->words 		= array_merge($this->words, $this->fields);
+
 			$this->words["datos"]=$datas;
 
 			return parent::__CONSTRUCT($option);
