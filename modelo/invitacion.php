@@ -44,8 +44,10 @@
 				
 				
 				#$this->words["qr"] = "$imagen_qr <br> ";	
-e				$this->words["qr"] .= "INVITACION CONFIRMADA <br>";	
+				$this->words["qr"] .= "INVITACION CONFIRMADA <br>";	
+
 				if($this->fields["numero_invitado"]!=-1)
+
 					$this->words["qr"] .= "
 						<div class=\"container subtitulo\">
 						{$this->fields["numero_invitado"]} Personas
