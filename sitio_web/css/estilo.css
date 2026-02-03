@@ -62,29 +62,17 @@
   transition: all 0.7s ease-out;
 }
 
-/* Estado final */
 .animar.visible {
   opacity: 1;
-  transform: translate(0, 0) scale(1);
+  transform: translate(0,0) scale(1);
 }
 
-/* Estados iniciales */
-.from-up {
-  transform: translateY(60px);
-}
-
-.from-down {
-  transform: translateY(-60px);
-}
-
-.from-left {
-  transform: translateX(-60px);
-}
-
-.from-right {
-  transform: translateX(60px);
-}
-
+/* Animaciones iniciales */
+.from-up    { transform: translateY(50px); }
+.from-down  { transform: translateY(-50px); }
+.from-left  { transform: translateX(-50px); }
+.from-right { transform: translateX(50px); }
+.from-zoom  { transform: scale(0.85); }
 
 
 
