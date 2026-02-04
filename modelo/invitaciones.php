@@ -50,6 +50,11 @@
 			$invitados_confirmados=0;
 			$invitados_espera=0;
 			$invitados_cancelados=0;
+
+			$libres_confirmados=0;
+			$libres_espera=0;
+			$libres_cancelados=0;
+
 			foreach($this->datas as $data)
 			{	
 				$id_invitado	=@md5($data["id_invitado"]);
@@ -80,19 +85,30 @@ Confirmanos por medio del siguiente link:\n
 				$mesa_invitado="";
 				if($data["status_gral_invitado"]=="ACEPTAR")	
 				{
-					$invitados_confirmados+=intval($data["numero_invitado"]);
-					$status_invitado ="background-color: green;";
-					$mesa_invitado="<input class=\"subtitulo\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
+					if($data["numero_invitado"]=="Libre"){
+						$libres_confirmados++;
+					}
+					else{
+						$invitados_confirmados+=intval($data["numero_invitado"]);
+						$status_invitado ="background-color: green;";
+						$mesa_invitado="<input class=\"subtitulo\" style=\"width:50px;\" name=\"mesa_" . md5($data["id_invitado"]) . "\" value=\"" . $data["mesa_invitado"] . "\"> ";	
+					}
 
 				}
 				elseif($data["status_gral_invitado"]=="CANCELAR")
 				{
-					$invitados_cancelados+=intval($data["numero_invitado"]);	
-
+					if($data["numero_invitado"]=="Libre"){
+						$libres_cancelados++;
+					}
+					else
+						$invitados_cancelados+=intval($data["numero_invitado"]);		
 				}
 				else
 				{
-					$invitados_espera+=intval($data["numero_invitado"]);					
+					if($data["numero_invitado"]=="Libre")
+						$libres_espera++;
+					else
+						$invitados_espera+=intval($data["numero_invitado"]);					
 				}
 					
 				if($data["status_gral_invitado"]=="CANCELAR")	$status_invitado ="background-color: red;";
@@ -117,10 +133,15 @@ Confirmanos por medio del siguiente link:\n
 				";
 			}
 			
-			$this->words["invitados_confirmados"]=$invitados_confirmados;
-			$this->words["invitados_espera"]=$invitados_espera;
-			$this->words["invitados_cancelados"]=$invitados_cancelados;
+			$this->words["libres_confirmados"]		=$libres_confirmados;
+			$this->words["libres_espera"]			=$libres_espera;
+			$this->words["libres_cancelados"]		=$libres_cancelados;
 			
+			$this->words["invitados_confirmados"]	=$invitados_confirmados;
+			$this->words["invitados_espera"]		=$invitados_espera;
+			$this->words["invitados_cancelados"]	=$invitados_cancelados;
+
+
 			$this->words["datos"]=$datas;
 
 			return parent::__CONSTRUCT($option);
