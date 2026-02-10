@@ -1,5 +1,5 @@
 <?php
-	class galeria extends general
+	class invitacion extends general
 	{   
 		##############################################################################	
 		##  Propiedades	
@@ -11,17 +11,15 @@
          
 		public function __CONSTRUCT($option=null)
 		{	
-			$comando_sql				="
-				SELECT * FROM evento e 
-				WHERE
-				md5(e.id_evento)='{$_REQUEST["id"]}'
-			";				
-			$this->fields				= @$this->__EXECUTE($comando_sql)[0];
-
 			if(isset($_REQUEST["action"]))
 			{
+				#$this->__PRINT_R($_REQUEST);
+				#$this->__PRINT_R($_FILES);
 				$this->__SAVE($_REQUEST["action"]);
 			}
+
+			$date1_fecha_evento = new DateTime('2026-02-27 17:00');
+			$date2_fecha_servidor = new DateTime(Date('Y-m-d H:i'));
 
 
 			$this->__INI();
@@ -30,40 +28,78 @@
 			$comando_sql				="
 				SELECT * 
 				FROM 
-					evento e left join 
-					file f on f.id_evento=e.id_evento
+					evento e join 
+					invitado i on i.id_evento=md5(e.id_evento)
 				WHERE
-					md5(e.id_evento)='{$_REQUEST["id"]}'
+					md5(i.id_invitado)='{$_REQUEST["id"]}'
 			";				
-			$this->fields				= @$this->__EXECUTE($comando_sql);
+			$this->fields				= $this->__EXECUTE($comando_sql)[0];
 
-
-			#$this->__PRINT_R($this->fields);
-
-			$imagen_qr = $this->__QR("http://losboletos.vip/galeria/show/&id=" . $_REQUEST["id"], 400);
-			#$this->words["md5_id_invitado"]=md5($this->fields["id_invitado"]);
-			$this->words["qr"] = "$imagen_qr <br> ";	
-			
-			$this->words["files"]="	
-<label class=\"file-btn\">
-Selecciona 📷
-  <input type=\"file\" name=\"files[]\" accept=\"image/*\" multiple>
-  
-</label>
-<font value=\"CARGAR\" type=\"button\">Subirlas</font>    
-
-<img id=\"preview\" alt=\"Previsualización\" />	
-				";
-
-			if(is_array($this->fields) and is_array($this->fields[0]))
-				$this->words 		= array_merge($this->words, $this->fields[0]);
-
-			#foreach($values as $row => $data)	
-			foreach($this->fields as $foto)
+			if($this->fields["status_gral_invitado"]=="ACEPTAR")			
 			{
-				@$this->words["fotos"].="<img src=\"../../files/file_". md5($foto["id_file"])  .".jpeg\">";
-			}
+				$imagen_qr = $this->__QR("http://losboletos.vip/invitacion/show/&estado=ingreso&id=" . $_REQUEST["id"], 400);
 
+
+				$this->words["md5_id_invitado"]=md5($this->fields["id_invitado"]);
+				
+				
+				#$this->words["qr"] = "$imagen_qr <br> ";	
+				$this->words["qr"] .= "INVITACION CONFIRMADA <br>";	
+
+				if($this->fields["numero_invitado"]!="Libre")
+
+					$this->words["qr"] .= "
+						<div class=\"container subtitulo\">
+						{$this->fields["numero_invitado"]} Personas
+						</div>        
+					";				
+			}			
+			if($this->fields["status_gral_invitado"]=="CANCELAR")			
+			{
+				$this->words["qr"] .= "INVITACION CANCELADA";
+			}			
+			
+			#echo "$date1_fecha_evento > $date2_fecha_servidor"; 
+			if ($date1_fecha_evento > $date2_fecha_servidor) 
+			{
+
+
+
+				$this->words["html_confirmacion_evento"]="
+					<table class=\"subtitulo\" border=\"0\" style=\"width: 100%;\">
+						<tr><td style=\"text-align: center;\" align=\"center\">
+							Favor de confirmar<br>antes del {confirmacion_evento}
+						</td></tr>
+					</table>
+					<br>
+					<div class=\"container\">    
+						<font value=\"ACEPTAR\" type=\"button\">CONFIRMADA</font>    
+						<font value=\"CANCELAR\" type=\"button\">CANCELADA</font>
+					</div>
+				";
+			}
+			else
+			{
+				
+				$this->words["files"]="
+					<div class=\"container\">   <br> 
+						Compartenos tu fotos !! <br>
+						<input type=\"file\" name=\"files[]\" multiple>
+						<font value=\"CARGAR\" type=\"button\">Subir Fotos</font>    
+					</div>
+				";
+				
+			} 
+
+			if($this->fields["lsalon_evento"]!="")			
+				$this->words["map_salon"]	= $this->__MAP($this->fields["lsalon_evento"]);
+
+			if($this->fields["lmisa_evento"]!="")			
+				$this->words["map_misa"]	= $this->__MAP($this->fields["lmisa_evento"]);
+
+			$this->words["option_invitado"]="";
+
+			$this->words 		= array_merge($this->words, $this->fields);
 
 			return parent::__CONSTRUCT($option);
 		}
@@ -71,8 +107,23 @@ Selecciona 📷
 
 		public function __SAVE($option=null)
 		{	
+			$complemento_sql="";
+			if(isset($_REQUEST["numero_invitado"]))
+				$complemento_sql=", numero_invitado='{$_REQUEST["numero_invitado"]}'";
+
+			if(isset($_REQUEST["action"]))
+			{
+				$complemento_sql=", fecha_gral_invitado='" . date('Y-m-d') . "'";
+			}
+	
 				
-			#$this->__EXECUTE($comando_sql);
+			$comando_sql				="
+				UPDATE invitado SET status_gral_invitado='$option' $complemento_sql
+				WHERE
+					md5(id_invitado)='{$_REQUEST["id"]}'
+			";
+				
+			$this->__EXECUTE($comando_sql);
 
 
 
@@ -121,10 +172,10 @@ Selecciona 📷
 								$height				=$data_im["height"];
 								$orientation		=$data_im["orientation"];
 					
-								$comando_sql		="INSERT INTO file (invitado_id, id_evento)
+								$comando_sql		="INSERT INTO file (invitado_id, evento_id)
 								VALUES(	
 									'{$_REQUEST["id"]}', 
-									'" . $this->fields["id_evento"] ."'
+									'1'
 								)";
 								$file_id			=$this->__EXECUTE($comando_sql);													
 

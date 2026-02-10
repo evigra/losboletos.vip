@@ -14,22 +14,72 @@
     
 </div>
 
+<div class="galeria">
+    <div class="stack">
 
-<div class="separador_foto">
-    <div style="position:absolute;">
-        <img src="../.././sitio_web/img/separador2.png" width="100%">
-    </div>    
-    <div style="padding-top: 160px;">
-        <img src="../.././sitio_web/img/fondo4.jpg" width="100%">
-    </div>    
-    <div style="position:absolute; bottom:-160px;">
-        <img src="../.././sitio_web/img/separador.png" width="100%">
-    </div>    
+         {fotos} 
+    </div>
+
+    <font class="btn prev">⟵</font>
+    <font class="btn next">⟶</font>
 </div>
 
 
-
 <script>
+$(function(){
+
+    let fotos = $('.stack img');
+    let index = 0;
+    let zoom = 1;
+
+    function mostrar(i){
+        fotos.removeClass('active');
+        fotos.eq(i).addClass('active')
+                 .css('transform', `scale(${zoom})`);
+    }
+
+    $('.next').click(() => {
+        index = (index + 1) % fotos.length;
+        zoom = 1;
+        mostrar(index);
+    });
+
+    $('.prev').click(() => {
+        index = (index - 1 + fotos.length) % fotos.length;
+        zoom = 1;
+        mostrar(index);
+    });
+
+    // TOUCH
+    let startX, startY;
+
+    $('.stack').on('touchstart', function(e){
+        let t = e.originalEvent.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+    });
+
+    $('.stack').on('touchend', function(e){
+        let t = e.originalEvent.changedTouches[0];
+        let dx = t.clientX - startX;
+        let dy = t.clientY - startY;
+
+        // Horizontal → cambiar foto
+        if(Math.abs(dx) > Math.abs(dy)){
+            if(dx < -50) $('.next').click();
+            if(dx > 50) $('.prev').click();
+        }
+        // Vertical → zoom
+        else{
+            if(dy < -50) zoom += 0.1;   // zoom in
+            if(dy > 50) zoom = Math.max(1, zoom - 0.1); // zoom out
+
+            fotos.eq(index)
+                 .css('transform', `scale(${zoom})`);
+        }
+    });
+
+});
 
 const animaciones = [
     'from-up',
