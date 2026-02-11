@@ -72,6 +72,8 @@
     transform:translateY(-50%);
     background:rgba(0,0,0,.6);
     color:#fff;
+    width:100px;
+    height:100px;    
     border:none;
     font-size:22px;
     padding:8px 12px;
@@ -118,7 +120,6 @@
 #preview {
   display: none;
   width: 100%;
-  max-height: 300px;
   object-fit: cover;
   border-radius: 12px;
   border: 2px solid #ddd;

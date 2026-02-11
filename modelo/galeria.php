@@ -61,7 +61,9 @@ Selecciona 📷
 			#foreach($values as $row => $data)	
 			foreach($this->fields as $foto)
 			{
-				@$this->words["fotos"].="<img src=\"../../files/file_". md5($foto["id_file"])  .".jpeg\">";
+				if($this->words["fotos"]=="")	
+					$this->words["fotos"]="<img src=\"../../files/file_". md5($foto["id_file"])  .".jpeg\" class=\"active\">";
+				$this->words["fotos"].="<img src=\"../../files/file_". md5($foto["id_file"])  .".jpeg\">";
 			}
 
 
