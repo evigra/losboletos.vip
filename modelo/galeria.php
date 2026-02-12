@@ -65,8 +65,8 @@ Selecciona 📷
 				$path="http://losboletos.vip";
 
 				if(@$this->words["fotos"]=="")	
-					$this->words["fotos"]="<img src=\"$path/files/file_". md5($foto["id_file"])  .".jpeg\" class=\"active\">";
-				$this->words["fotos"].="<img src=\"$path/files/file_". md5($foto["id_file"])  .".jpeg\">";
+					$this->words["fotos"]="<img src=\"$path/files/file_". @md5($foto["id_file"])  .".jpeg\" class=\"active\">";
+				$this->words["fotos"].="<img src=\"$path/files/file_". @md5($foto["id_file"])  .".jpeg\">";
 			}
 
 
