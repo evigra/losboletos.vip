@@ -61,9 +61,12 @@ Selecciona 📷
 			#foreach($values as $row => $data)	
 			foreach($this->fields as $foto)
 			{
-				if($this->words["fotos"]=="")	
-					$this->words["fotos"]="<img src=\"../../files/file_". md5($foto["id_file"])  .".jpeg\" class=\"active\">";
-				$this->words["fotos"].="<img src=\"../../files/file_". md5($foto["id_file"])  .".jpeg\">";
+				$path="../..";
+				$path="http://losboletos.vip";
+
+				if(@$this->words["fotos"]=="")	
+					$this->words["fotos"]="<img src=\"$path/files/file_". md5($foto["id_file"])  .".jpeg\" class=\"active\">";
+				$this->words["fotos"].="<img src=\"$path/files/file_". md5($foto["id_file"])  .".jpeg\">";
 			}
 
 
@@ -123,10 +126,12 @@ Selecciona 📷
 								$height				=$data_im["height"];
 								$orientation		=$data_im["orientation"];
 					
-								$comando_sql		="INSERT INTO file (invitado_id, id_evento)
+								$comando_sql		="INSERT INTO file (invitado_id, id_evento, documento, tipo_file)
 								VALUES(	
 									'{$_REQUEST["id"]}', 
-									'" . $this->fields["id_evento"] ."'
+									'" . $this->fields["id_evento"] ."',
+									'galeria',
+									'" . $extencion_img . "'
 								)";
 								$file_id			=$this->__EXECUTE($comando_sql);													
 
